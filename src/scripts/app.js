@@ -13,11 +13,12 @@ const app = function() {
       // routes
     },
     redirect: function(){
-
+      location.hash= "home"
     },
 
     initialize: function (args) {
       // super
+      Backbone.history.start()
     },
 
     main: function () {
