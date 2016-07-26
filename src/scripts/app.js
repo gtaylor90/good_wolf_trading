@@ -2,22 +2,29 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Backbone from 'backbone'
 import init from './init'
+import HomeView from './views/homeview'
+import { SingleCard } from './models/models'
+
 
 
 const app = function() {
-  Router = Backbone.Router.extend({
+  const Router = Backbone.Router.extend({
 
     routes: {
       "home": "handleDashboard",
       "*catchall": "redirect"
       // routes
     },
+
+    handleDashboard: function(){
+      ReactDOM.render(<HomeView />, document.querySelector('.container'))
+    },
+
     redirect: function(){
       location.hash= "home"
     },
 
     initialize: function (args) {
-      // super
       Backbone.history.start()
     },
 
