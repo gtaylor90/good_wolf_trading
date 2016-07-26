@@ -8,8 +8,12 @@ const app = function() {
   Router = Backbone.Router.extend({
 
     routes: {
-      "*": "main"
+      "home": "handleDashboard",
+      "*catchall": "redirect"
       // routes
+    },
+    redirect: function(){
+
     },
 
     initialize: function (args) {
@@ -21,6 +25,7 @@ const app = function() {
     }
 
   });
+  new Router()
 }
 
 // x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..
