@@ -72,14 +72,7 @@ const SingleCard = Backbone.Model.extend({
 const CardList = Backbone.Collection.extend({
 
   model: SingleCard,
-
-	url: function(){
-		return SingleCard.urlRoot
-	},
-
-  initialize: function (args) {
-    // super
-  }
+	
 
 });
 
