@@ -2,12 +2,17 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 const HomeView = React.createClass({
+  _handleSearch: function(){
+    
+  },
   render() {
     return (
-      <div className="row">
+      <div className="row" onSubmit={this._handleSearch} >
+        <form>
         <input className="two-thirds column" type="text" />
         <input className="button-primary"
-        type="button" value="Search!"/>
+        type="submit" value="Search!"/>
+        </form>
       </div>
     );
   }
