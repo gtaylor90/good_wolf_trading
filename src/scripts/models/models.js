@@ -70,10 +70,9 @@ const SingleCard = Backbone.Model.extend({
 });
 
 const CardList = Backbone.Collection.extend({
-
   model: SingleCard,
-	
+
 
 });
 
-export { User, SingleCard }
+export { User, CardList, SingleCard }

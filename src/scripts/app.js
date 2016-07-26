@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import Backbone from 'backbone'
 import init from './init'
 import HomeView from './views/homeview'
+import { CardList } from './models/models'
 import { SingleCard } from './models/models'
 
 
@@ -11,15 +12,22 @@ const app = function() {
   const Router = Backbone.Router.extend({
 
     routes: {
+      "card/:mID": "handleSingleCard",
       "home": "handleDashboard",
       "*catchall": "redirect"
       // routes
     },
 
     handleDashboard: function(){
-      ReactDOM.render(<HomeView />, document.querySelector('.container'))
+      var cardColl = new CardList
+      ReactDOM.render(<HomeView cardColl={cardColl}/>,
+        document.querySelector('.container'))
     },
-
+    handleSingleCard: function(mID){
+      var singleCard = new SingleCard(mID)
+      ReactDOM.render(<HomeView cardColl={cardColl}/>,
+        document.querySelector('.container'))
+    },
     redirect: function(){
       location.hash= "home"
     },
