@@ -16,7 +16,12 @@ const usersSchema = new Schema({
   createdAt: { type: Date, default: Date.now }
 
 })
-
+const collectionSchema = new Schema({
+  collectionName: { type: String, required: true},
+  collectionOwner: { type: String, required: true},
+  collectionContents: { type: [Number] }
+  //this needs to be the MUID from the API
+})
 
 module.exports = {
   User: createModel('User', usersSchema)
