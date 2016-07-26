@@ -5,7 +5,7 @@ const AutoComplete = React.createClass({
 
   render: function(){
     return (
-    <div className="" >
+    <div className="autoComplete" >
       <p>{this.props.cardsColl}</p>
     </div>
     )
