@@ -20,7 +20,7 @@ const app = function() {
       "*catchall": "redirect"
       // routes
     },
-    handleBinder: function(){
+    handleBinders: function(){
       let cardColl = new CardList
       ReactDOM.render(<BinderView cardColl={cardColl} />,
         document.querySelector('.container'))
