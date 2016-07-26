@@ -1,11 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import ACTIONS from '../actions'
 
 const AutoComplete = React.createClass({
 
   render: function(){
     return (
-    <div className="autoComplete" >
+    <div className="autoComplete two-thirds column" >
       <p>{this.props.cardsColl}</p>
     </div>
     )
@@ -13,14 +14,15 @@ const AutoComplete = React.createClass({
 })
 
 const HomeView = React.createClass({
-  _handleSearch: function(){
-
+  _handleSearch: function(evt){
+    evt.preventDefault()
+    ACTIONS.searchForCards(evt.currentTarget.cardSearch.value)
   },
   render() {
     return (
-      <div className="row" onSubmit={this._handleSearch} >
-        <form>
-        <input className="two-thirds column" type="text" />
+      <div className="row" >
+        <form onSubmit={this._handleSearch} >
+        <input name="cardSearch" className="two-thirds column" type="text" />
         <input className="button-primary"
         type="submit" value="Search!"/>
         <AutoComplete cardsColl="test" />

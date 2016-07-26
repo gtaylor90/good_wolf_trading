@@ -64,15 +64,11 @@ const User = UserAuthModel.extend({
 	}
 })
 
-const SingleCard = Backbone.Model.extend({
-	urlRoot: 'https://api.deckbrew.com/mtg/cards'
 
-});
 
 const CardList = Backbone.Collection.extend({
-  model: SingleCard,
-
+	url: 'https://api.deckbrew.com/mtg/cards/typeahead'
 
 });
 
-export { User, CardList, SingleCard }
+export { User, CardList }
