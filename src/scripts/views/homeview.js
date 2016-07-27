@@ -6,15 +6,21 @@ import STORE from '../store'
 
 
 const AutoComplete = React.createClass({
-  _handleCards: function(theCollectionModel){
-    console.log("handleCards", this.props.searchResults.models);
+
+  _handleCards: function(models){
   },
   render: function(){
-    console.log();
     return(
     <div className="autoComplete two-thirds column" >
       <ul>
-        {this._handleCards(STORE.data)}
+        {this.props.searchResults.map((modl)=>{
+          return(
+            <li key={modl.cid}>
+              <h6>{modl.get('name')}</h6>
+              <h6>{modl.get('cmc')}</h6>
+            </li>
+          )
+        })}
       </ul>
     </div>
     )
@@ -33,6 +39,7 @@ const HomeView = React.createClass({
   _handleSearch: function(evt){
     evt.preventDefault()
     ACTIONS.searchForCards(evt.currentTarget.cardSearch.value)
+    this.forceUpdate()
   },
   render() {
     return (
@@ -42,7 +49,7 @@ const HomeView = React.createClass({
         <input className="button-primary"
         type="submit" value="Search!"/>
         </form>
-        <AutoComplete searchResults={STORE.data} />
+        <AutoComplete searchResults={this.state.cardColl} />
       </div>
     );
   }
