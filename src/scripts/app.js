@@ -17,6 +17,7 @@ const app = function() {
       "myBinders/:bID": "handleSingleBinder",
       "card/:mID": "handleSingleCard",
       "home": "handleDashboard",
+      "login": "handleLogin",
       "*catchall": "redirect"
       // routes
     },
