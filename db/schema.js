@@ -16,13 +16,17 @@ const usersSchema = new Schema({
   createdAt: { type: Date, default: Date.now }
 
 })
+const cardSchema = new Schema({
+  cardOwner: {type: String, required: true},
+  cardID: {type: String, required: true}
+})
 const collectionSchema = new Schema({
-  collectionName: { type: String, required: true},
   collectionOwner: { type: String, required: true},
-  collectionContents: { type: [Number] }
-  //this needs to be the MUID from the API
+  collectionContents: { type: [String] },
+  lastUpdate: { type: Date, default: Date.now }
 })
 
 module.exports = {
-  User: createModel('User', usersSchema)
+  User: createModel('User', usersSchema),
+  Card: createModel('Card', cardSchema)
 }

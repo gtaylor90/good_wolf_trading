@@ -50,7 +50,8 @@ UserAuthModel.logout = function() {
 }
 
 UserAuthModel.getCurrentUser = function() {
-	return localStorage[app_name + '_user'] ? JSON.parse(localStorage[app_name + '_user']) : null
+	return localStorage[app_name + '_user'] ? JSON.parse(localStorage[app_name +
+		'_user']) : null
 }
 
 
@@ -64,7 +65,15 @@ const User = UserAuthModel.extend({
 	}
 })
 
+const Card = Backbone.Model.extend({
+	urlRoot: '/api/cards',
+	idAttribute: '_id'
+})
 
+const Binder = Backbone.Collection.extend({
+	model: Card,
+	url: '/api/cards'
+})
 
 const CardList = Backbone.Collection.extend({
 	url: 'https://api.deckbrew.com/mtg/cards/typeahead'

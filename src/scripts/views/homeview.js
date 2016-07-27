@@ -3,11 +3,18 @@ import ReactDOM from 'react-dom'
 import ACTIONS from '../actions'
 import STORE from '../store'
 import Header from './navbar'
+import { User } from '../models/models'
 
 
 const AutoComplete = React.createClass({
 
-  _handleCards: function(models){
+  _handleCards: function(modl){
+    console.log(`ya clicked ${modl.get('name')}`)
+    console.log('current user ', User.getCurrentUser())
+    console.log(`this is the ID of the card ${modl.get('id')}`);
+    if(!User.getCurrentUser()){
+      alert('please log in to add cards to your binder')
+    }
   },
   render: function(){
     return(
@@ -15,10 +22,19 @@ const AutoComplete = React.createClass({
       <ul>
         {this.props.searchResults.map((modl)=>{
           return(
-            <li className="" key={modl.cid}>
-              <h6 className="cardName" >{modl.get('name')}</h6>
-              <img className="acIMG" src={modl.get('editions')[0].image_url} />
-            </li>
+            <div  id={modl.get('name')} className="acList" key={modl.cid}>
+              <div className="row">
+                <div className="row">
+                <h6 className="one-third column cardName" >
+                {modl.get('name')}</h6>
+                <img className="two-thirds column acIMG"
+                src={modl.get('editions')[0].image_url} />
+                </div>
+                <input className="button-primary row"
+                type="submit" value="+"
+                onClick={()=>this._handleCards(modl)}/>
+              </div>
+            </div>
           )
         })}
       </ul>
@@ -27,7 +43,7 @@ const AutoComplete = React.createClass({
   }
 })
 
-const HomeView = React.createClass({
+const SearchView = React.createClass({
   componentWillMount() {
     STORE.on('fonz', ()=>{
       this.setState(STORE.getData())
@@ -56,5 +72,16 @@ const HomeView = React.createClass({
   }
 
 });
+
+const HomeView = React.createClass({
+  render: function(){
+    return(
+      <div className="homeContainer">
+      <Header />
+      <SearchView />
+      </div>
+    )
+  }
+})
 
 export default HomeView

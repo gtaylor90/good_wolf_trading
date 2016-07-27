@@ -1,7 +1,7 @@
-// * {
+* {
 // 	font-family: Helvetica, Arial, sans-serif;
-// 	box-sizing: border-box;
-// }
+ 	box-sizing: border-box;
+}
 //
 // h1 {
 // 	font-size: 300px;
@@ -16,7 +16,14 @@ vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 .autoComplete{
   outline: 1p black solid;
 }
+.acList{
+  margin-top: 17px;
+  padding: 22px;
+  outline-style: solid;
+  outline-color: gray;
+  outline-width: thin;
+}
 
 .acIMG{
-  max-width: 20%;
+  max-width: 33%;
 }

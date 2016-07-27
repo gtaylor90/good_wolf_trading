@@ -4,6 +4,8 @@ import Backbone from 'backbone'
 import init from './init'
 import HomeView from './views/homeview'
 import BinderView from './views/binder'
+import LoginView from './views/login'
+import { User } from './models/models'
 import { CardList } from './models/models'
 import { SingleCard } from './models/models'
 
@@ -20,6 +22,11 @@ const app = function() {
       "login": "handleLogin",
       "*catchall": "redirect"
       // routes
+    },
+    handleLogin: function(){
+      let cardColl = new CardList
+      ReactDOM.render(<LoginView cardColl={cardColl} />,
+        document.querySelector('.container'))
     },
     handleBinders: function(){
       let cardColl = new CardList
@@ -42,6 +49,11 @@ const app = function() {
 
     initialize: function (args) {
       Backbone.history.start()
+      this.on('route', function(hndlrName){
+        if(!User.getCurrentUser()){
+          location.hash= "login"
+        }
+      })
     },
 
     main: function () {

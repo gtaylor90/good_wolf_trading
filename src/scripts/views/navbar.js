@@ -20,8 +20,8 @@ const NavBar = React.createClass({
             <div id="navBar"> {/*made a few edits here so that is makes sense for this app*/}
                 <a className="button" href="#login">Log In</a>
                 <a className="button" href="#home">Home</a>
-                <a className="button" href="#home">My Binder</a>
-                <a className="button" href="#home">Card Search</a>
+                <a className="button" href="#myBinder">My Binder</a>
+                <a className="button" href="#cardSearch">Card Search</a>
                 <a className="button" href="#" onClick={ACTIONS.logUserOut}>Log Out</a>
             </div>
             )
