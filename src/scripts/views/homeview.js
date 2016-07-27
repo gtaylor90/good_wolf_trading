@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import ACTIONS from '../actions'
 import STORE from '../store'
-
+import Header from './navbar'
 
 
 const AutoComplete = React.createClass({
@@ -15,8 +15,8 @@ const AutoComplete = React.createClass({
       <ul>
         {this.props.searchResults.map((modl)=>{
           return(
-            <li key={modl.cid}>
-              <h6>{modl.get('name')}</h6>
+            <li className="" key={modl.cid}>
+              <h6 className="cardName" >{modl.get('name')}</h6>
               <img className="acIMG" src={modl.get('editions')[0].image_url} />
             </li>
           )
