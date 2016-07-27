@@ -17,7 +17,7 @@ const AutoComplete = React.createClass({
           return(
             <li key={modl.cid}>
               <h6>{modl.get('name')}</h6>
-              <h6>{modl.get('cmc')}</h6>
+              <img className="acIMG" src={modl.get('editions')[0].image_url} />
             </li>
           )
         })}
