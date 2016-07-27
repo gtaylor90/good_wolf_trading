@@ -11,7 +11,7 @@ const ACTIONS = {
         q: q
       }
     }).then(function() {
-      STORE.emitChange
+      STORE.emitChange()
     })
   }
 }

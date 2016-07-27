@@ -39,9 +39,10 @@ const HomeView = React.createClass({
   _handleSearch: function(evt){
     evt.preventDefault()
     ACTIONS.searchForCards(evt.currentTarget.cardSearch.value)
-    this.forceUpdate()
   },
   render() {
+    console.log('rendering')
+    console.log(this.state.cardColl.models.length)
     return (
       <div className="row" >
         <form onSubmit={this._handleSearch} >
