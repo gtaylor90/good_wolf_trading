@@ -5,9 +5,10 @@ import init from './init'
 import HomeView from './views/homeview'
 import BinderView from './views/binder'
 import LoginView from './views/login'
+import CardSearchView from './views/cardSearch'
 import { User } from './models/models'
 import { CardList } from './models/models'
-import { SingleCard } from './models/models'
+import { Card } from './models/models'
 
 
 
@@ -15,6 +16,7 @@ const app = function() {
   const Router = Backbone.Router.extend({
 
     routes: {
+      "cardSearch": "handleCardSearch",
       "myBinders": "handleBinders",
       "myBinders/:bID": "handleSingleBinder",
       "card/:mID": "handleSingleCard",
@@ -22,6 +24,10 @@ const app = function() {
       "login": "handleLogin",
       "*catchall": "redirect"
       // routes
+    },
+    handleCardSearch: function(){
+      let cardColl = new CardList
+      ReactDOM.render(<CardSearchView />, document.querySelector('.container'))
     },
     handleLogin: function(){
       let cardColl = new CardList

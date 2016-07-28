@@ -1,4 +1,4 @@
-import { User, CardList } from './models/models'
+import { User, CardList, Card } from './models/models'
 import STORE from './store'
 
 const ACTIONS = {

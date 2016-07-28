@@ -1,8 +1,8 @@
 let Router = require('express').Router;
 const apiRouter = Router()
 let helpers = require('../config/helpers.js')
-
 let User = require('../db/schema.js').User
+let Card = require('../db/schema.js').Card
 
 
   apiRouter
@@ -42,15 +42,25 @@ let User = require('../db/schema.js').User
 
     // Routes for a Model(resource) should have this structure
     apiRouter.post('/cards', function(request, response){
-         let dish = new Card(request.body) //create new instance of schema
+         let card = new Card(request.body) //create new instance of schema
        //request.body is all the information we gathered from the client side
          card.save(function(err){ //handling errors
             if(err){
               response.send(err)
             } else {
-              response.json(dish)
+              response.json(card)
             }
          })
       })
+      apiRouter.get('/cards', function(request, response){
+      Card.find(request.query, function(err, rec){
+      if(err){
+        response.send(err)
+      } else {
+        response.json(rec)
+      }
+    })
+    //some methods live directly on the model
+  })
 
 module.exports = apiRouter
