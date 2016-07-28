@@ -39,6 +39,19 @@ const ACTIONS = {
     User.logout().then(
       ()=> location.hash="login"
     )
+  },
+  saveCard: function(cardObj){
+    var card = new Card(cardObj)
+    card.save().then(
+      (res)=>{
+        alert('card saved!')
+        console.log(res)
+      },
+      (err)=>{
+        alert('ya done goofed')
+        console.log(err);
+      }
+    )
   }
 }
 

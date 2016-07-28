@@ -18,6 +18,8 @@ const usersSchema = new Schema({
 })
 const cardSchema = new Schema({
   cardOwner: {type: String, required: true},
+  cardName: {type: String, required: true},
+  cardValue: {type: Number, default: 0},
   cardID: {type: String, required: true}
 })
 const collectionSchema = new Schema({

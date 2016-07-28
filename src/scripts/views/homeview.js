@@ -5,15 +5,23 @@ import STORE from '../store'
 import Header from './navbar'
 import { User } from '../models/models'
 
-
+/*
+cardOwner: {type: String, required: true},
+cardName: {type: String, required: true},
+cardValue: {type: Number, default: 0},
+cardID: {type: String, required: true}
+*/
 const AutoComplete = React.createClass({
 
   _handleCards: function(modl){
-    console.log(`ya clicked ${modl.get('name')}`)
-    console.log('current user ', User.getCurrentUser())
-    console.log(`this is the ID of the card ${modl.get('id')}`);
     if(!User.getCurrentUser()){
       alert('please log in to add cards to your binder')
+    } else {
+      ACTIONS.saveCard({
+        cardOwner: User.getCurrentUser().email,
+        cardName: modl.get('name'),
+        cardID: modl.get('id')
+      })
     }
   },
   render: function(){
@@ -76,7 +84,7 @@ const SearchView = React.createClass({
 const HomeView = React.createClass({
   render: function(){
     return(
-      <div className="homeContainer">
+      <div className="row">
       <Header />
       <SearchView />
       </div>
