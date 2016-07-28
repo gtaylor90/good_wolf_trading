@@ -86,7 +86,7 @@ const CardSearchView = React.createClass({
     return(
       <div className="row">
       <Header />
-      <h2>Search Users</h2>
+      <h2>Search Available Cards</h2>
       <SearchView />
       </div>
     )
