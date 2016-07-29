@@ -24,7 +24,7 @@ const BINDER_STORE = _.extend(Backbone.Events, {
     this.trigger('bonz')
   },
   getData: function(){
-    return: _.clone(this.data)
+    return _.clone(this.data)
   },
   initialize: function(){
     this.data.collection.on('sync update', this._emitChange.bind(this))

@@ -36,7 +36,10 @@ const app = function() {
         document.querySelector('.container'))
     },
     handleBinders: function(){
-      let binder = new Binder
+      let binder = new Binder()
+      binder.fetch().fail(function(err){
+        console.log(err);
+      })
       ReactDOM.render(<BinderView cardColl={binder} />,
         document.querySelector('.container'))
     },
