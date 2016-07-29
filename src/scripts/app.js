@@ -6,6 +6,7 @@ import HomeView from './views/homeview'
 import BinderView from './views/binder'
 import LoginView from './views/login'
 import CardSearchView from './views/cardSearch'
+import { Binder } from './models/models'
 import { User } from './models/models'
 import { CardList } from './models/models'
 import { Card } from './models/models'
@@ -17,7 +18,7 @@ const app = function() {
 
     routes: {
       "cardSearch": "handleCardSearch",
-      "myBinders": "handleBinders",
+      "binders": "handleBinders",
       "myBinders/:bID": "handleSingleBinder",
       "card/:mID": "handleSingleCard",
       "home": "handleDashboard",
@@ -35,8 +36,8 @@ const app = function() {
         document.querySelector('.container'))
     },
     handleBinders: function(){
-      let cardColl = new CardList
-      ReactDOM.render(<BinderView cardColl={cardColl} />,
+      let binder = new Binder
+      ReactDOM.render(<BinderView cardColl={binder} />,
         document.querySelector('.container'))
     },
     handleDashboard: function(){

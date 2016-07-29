@@ -4,10 +4,9 @@ import React from 'react'
 const BinderView = React.createClass({
 
   render: function(){
+    console.log('some information hopefully', this.props.cardColl)
     return(
       <div className="binder" >
-        <img src="https://image.deckbrew.com/mtg/multiverseid/369060.jpg" />
-        <p> whatever </p>
       </div>
     )
   }

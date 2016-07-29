@@ -1,6 +1,7 @@
 import Backbone from 'backbone'
 import _ from 'underscore'
 import { CardList } from './models/models'
+import { Binder } from './models/models'
 
 
 const STORE = _.extend(Backbone.Events, {
@@ -15,4 +16,20 @@ const STORE = _.extend(Backbone.Events, {
   }
 })
 
-export default STORE
+const BINDER_STORE = _.extend(Backbone.Events, {
+  data: {
+    collection: new Binder()
+  },
+  emitChange: function(){
+    this.trigger('bonz')
+  },
+  getData: function(){
+    return: _.clone(this.data)
+  },
+  initialize: function(){
+    this.data.collection.on('sync update', this._emitChange.bind(this))
+  }
+})
+
+
+export  { STORE, BINDER_STORE }
