@@ -17,15 +17,11 @@ const usersSchema = new Schema({
 
 })
 const cardSchema = new Schema({
+  cardImage: {type:String},
   cardOwner: {type: String, required: true},
   cardName: {type: String, required: true},
   cardValue: {type: Number, default: 0},
   cardID: {type: String, required: true}
-})
-const collectionSchema = new Schema({
-  collectionOwner: { type: String, required: true},
-  collectionContents: { type: [String] },
-  lastUpdate: { type: Date, default: Date.now }
 })
 
 module.exports = {

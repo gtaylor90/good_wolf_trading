@@ -12,24 +12,27 @@ const STORE = _.extend(Backbone.Events, {
     return this.data
   },
   data:{
-    cardColl: new CardList
+    cardColl: new CardList,
+    binder: new Binder
   }
-})
 
-const BINDER_STORE = _.extend(Backbone.Events, {
-  data: {
-    collection: new Binder()
-  },
-  emitChange: function(){
-    this.trigger('bonz')
-  },
-  getData: function(){
-    return _.clone(this.data)
-  },
-  initialize: function(){
-    this.data.collection.on('sync update', this._emitChange.bind(this))
-  }
 })
 
 
-export  { STORE, BINDER_STORE }
+// const BINDER_STORE = _.extend(Backbone.Events, {
+//   data: {
+//     collection: new Binder()
+//   },
+//   emitChange: function(){
+//     this.trigger('bonz')
+//   },
+//   getData: function(){
+//     return _.clone(this.data)
+//   },
+//   initialize: function(){
+//     this.data.collection.on('sync update', this._emitChange.bind(this))
+//   }
+// })
+
+
+export default STORE

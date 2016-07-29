@@ -18,6 +18,7 @@ const AutoComplete = React.createClass({
       alert('please log in to add cards to your binder')
     } else {
       ACTIONS.saveCard({
+        cardImage: modl.get('editions')[0].image_url,
         cardOwner: User.getCurrentUser().email,
         cardName: modl.get('name'),
         cardID: modl.get('id')
@@ -66,7 +67,7 @@ const SearchView = React.createClass({
   },
   render() {
     console.log('rendering')
-    console.log(this.state.cardColl.models.length)
+    // console.log(this.state.cardColl.models.length)
     return (
       <div className="row" >
         <form onSubmit={this._handleSearch} >
