@@ -1,15 +1,22 @@
 import React from 'react'
 import Header from './navbar'
 import STORE from '../store'
+import ACTIONS from '../actions'
+import { User } from '../models/models'
 
 const BinderRendering = React.createClass({
 
   render:function(){
-    console.log();
+    console.log("what is passed through props",this.props.cardColl);
     return(
       <div>
       {this.props.cardColl.map((modl)=>{
-        <h6>{modl.get('name')}</h6>
+        console.log(modl.get('cardName'))
+        return(
+          <div>
+            <h6>{modl.get('cardName')}</h6>
+          </div>
+      )
       })}
       </div>
     )
@@ -19,10 +26,14 @@ const BinderRendering = React.createClass({
 
 const BinderView = React.createClass({
   componentWillMount() {
-    STORE.on('fonz', ()=>{
+    ACTIONS.fetchBinder({
+      cardOwner: User.getCurrentUser()._id
+    })
+    STORE.on('updateContent', ()=>{
       this.setState(STORE.getData())
     })
   },
+  
   getInitialState() {
     return STORE.getData()
   },

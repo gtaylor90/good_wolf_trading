@@ -36,11 +36,14 @@ const app = function() {
         document.querySelector('.container'))
     },
     handleBinders: function(){
-      let binder = new Binder()
-      binder.fetch().fail(function(err){
-        console.log(err);
-      })
-      ReactDOM.render(<BinderView cardColl={binder} />,
+      // let binder = new Binder()
+      // console.log(binder.fetch());
+      // binder.fetch({data:{
+      //   cardOwner: User.getCurrentUser()
+      // }}).fail(function(err){
+      //   console.log(err);
+      // })
+      ReactDOM.render(<BinderView />,
         document.querySelector('.container'))
     },
     handleDashboard: function(){

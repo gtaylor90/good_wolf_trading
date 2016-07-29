@@ -2,6 +2,11 @@ import { User, CardList, Card, Binder } from './models/models'
 import STORE from './store'
 
 const ACTIONS = {
+  fetchBinder: function(queryObj){
+    STORE.data.binder.fetch({
+      data: queryObj
+    })
+  },
   searchForCards: function(q){
     console.log(q);
     console.log("STORE.data.cardColl from ACTIONS.searchForCards",

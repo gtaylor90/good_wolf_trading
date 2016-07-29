@@ -6,10 +6,13 @@ import { Binder } from './models/models'
 
 const STORE = _.extend(Backbone.Events, {
   emitChange: function(){
-    this.trigger('fonz')
+    this.trigger('updateContent')
   },
   getData: function(){
     return this.data
+  },
+  initialize: function(){
+       this.data.cardColl.on('sync update', this.emitChange.bind(this))
   },
   data:{
     cardColl: new CardList,
@@ -17,7 +20,7 @@ const STORE = _.extend(Backbone.Events, {
   }
 
 })
-
+STORE.initialize()
 
 // const BINDER_STORE = _.extend(Backbone.Events, {
 //   data: {
@@ -29,9 +32,7 @@ const STORE = _.extend(Backbone.Events, {
 //   getData: function(){
 //     return _.clone(this.data)
 //   },
-//   initialize: function(){
-//     this.data.collection.on('sync update', this._emitChange.bind(this))
-//   }
+//
 // })
 
 

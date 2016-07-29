@@ -19,7 +19,7 @@ const AutoComplete = React.createClass({
     } else {
       ACTIONS.saveCard({
         cardImage: modl.get('editions')[0].image_url,
-        cardOwner: User.getCurrentUser().email,
+        cardOwner: User.getCurrentUser()._id,
         cardName: modl.get('name'),
         cardID: modl.get('id')
       })
@@ -54,7 +54,7 @@ const AutoComplete = React.createClass({
 
 const SearchView = React.createClass({
   componentWillMount() {
-    STORE.on('fonz', ()=>{
+    STORE.on('updateContent', ()=>{
       this.setState(STORE.getData())
     })
   },
@@ -67,7 +67,7 @@ const SearchView = React.createClass({
   },
   render() {
     console.log('rendering')
-    // console.log(this.state.cardColl.models.length)
+    console.log(this.state.cardColl.models.length)
     return (
       <div className="row" >
         <form onSubmit={this._handleSearch} >
@@ -87,6 +87,7 @@ const HomeView = React.createClass({
     return(
       <div className="row">
       <Header />
+      <h2>Search & Add Cards to your binder!</h2>
       <SearchView />
       </div>
     )
