@@ -43,6 +43,7 @@ const app = function() {
       // }}).fail(function(err){
       //   console.log(err);
       // })
+      
       ReactDOM.render(<BinderView />,
         document.querySelector('.container'))
     },

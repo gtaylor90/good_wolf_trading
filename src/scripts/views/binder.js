@@ -13,7 +13,7 @@ const BinderRendering = React.createClass({
       {this.props.cardColl.map((modl)=>{
         console.log(modl.get('cardName'))
         return(
-          <div>
+          <div key={modl.cid}>
             <h6>{modl.get('cardName')}</h6>
           </div>
       )
@@ -26,14 +26,20 @@ const BinderRendering = React.createClass({
 
 const BinderView = React.createClass({
   componentWillMount() {
-    ACTIONS.fetchBinder({
-      cardOwner: User.getCurrentUser()._id
-    })
-    STORE.on('updateContent', ()=>{
-      this.setState(STORE.getData())
-    })
+    if(!User.getCurrentUser()){
+      location.hash="login"
+    }
+    else {
+      ACTIONS.fetchBinder({
+        cardOwner: User.getCurrentUser()._id
+      })
+      STORE.on('updateContent', ()=>{
+        this.setState(STORE.getData())
+      })
+    }
+
   },
-  
+
   getInitialState() {
     return STORE.getData()
   },
