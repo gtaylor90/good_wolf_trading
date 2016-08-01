@@ -58,6 +58,9 @@ const SearchView = React.createClass({
       this.setState(STORE.getData())
     })
   },
+  componentWillUnmount: function() {
+		STORE.off('updateContent')
+	},
   getInitialState() {
     return STORE.getData()
   },

@@ -5,14 +5,19 @@ import { Binder } from './models/models'
 
 
 const STORE = _.extend(Backbone.Events, {
+  removeModel: function(modl){
+    console.log('model', modl.props.cardColl);
+    console.log('binder', this.data.binder);
+  },
   emitChange: function(){
     this.trigger('updateContent')
   },
   getData: function(){
-    return this.data
+    return _.clone(this.data)
   },
   initialize: function(){
        this.data.cardColl.on('sync update', this.emitChange.bind(this))
+       this.data.binder.on('sync update', this.emitChange.bind(this))
   },
   data:{
     cardColl: new CardList,

@@ -2,19 +2,24 @@ import React from 'react'
 import Header from './navbar'
 import STORE from '../store'
 import ACTIONS from '../actions'
+import $ from 'jquery'
 import { User } from '../models/models'
 
 const BinderRendering = React.createClass({
 
+  _deleteCard: function(){
+    STORE.removeModel(this)
+  },
   render:function(){
-    console.log("what is passed through props",this.props.cardColl);
     return(
       <div>
       {this.props.cardColl.map((modl)=>{
-        console.log(modl.get('cardName'))
         return(
           <div key={modl.cid}>
             <h6>{modl.get('cardName')}</h6>
+            <input className="button-primary row"
+            type="submit" value="X"
+            onClick={()=>this._deleteCard(this)}/>
           </div>
       )
       })}
@@ -44,7 +49,6 @@ const BinderView = React.createClass({
     return STORE.getData()
   },
   render: function(){
-    console.log('some information hopefully', this.state.binder)
     return(
       <div className="binder" >
       <Header />

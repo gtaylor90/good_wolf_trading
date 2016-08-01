@@ -41,6 +41,26 @@ let Card = require('../db/schema.js').Card
     })
 
     // Routes for a Model(resource) should have this structure
+
+    apiRouter.delete('/cards/:_id',function(request,response){
+      //request.params contains the variables that were in the route pattern, expressed in the form
+      // [route placeholder]: [value sent]
+      let theId = request.params._id
+      // console.log(request.body)
+      Card.remove({_id:theId},function(err) {
+        if (err) {
+          response.json({
+            error: err
+          })
+        }
+        else {
+          response.status(200).json({
+            msg: 'record successfully deleted!'
+          })
+        }
+      })
+    })
+
     apiRouter.post('/cards', function(request, response){
          let card = new Card(request.body) //create new instance of schema
        //request.body is all the information we gathered from the client side
