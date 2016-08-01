@@ -43,10 +43,10 @@ let Card = require('../db/schema.js').Card
     // Routes for a Model(resource) should have this structure
 
     apiRouter.delete('/cards/:_id',function(request,response){
-      //request.params contains the variables that were in the route pattern, expressed in the form
-      // [route placeholder]: [value sent]
+      //request.params contains the variables that were in the route pattern,
+      //expressed in the form: [route placeholder]: [value sent]
       let theId = request.params._id
-      // console.log(request.body)
+      console.log(request.body)
       Card.remove({_id:theId},function(err) {
         if (err) {
           response.json({

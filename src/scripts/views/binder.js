@@ -7,8 +7,8 @@ import { User } from '../models/models'
 
 const BinderRendering = React.createClass({
 
-  _deleteCard: function(){
-    STORE.removeModel(this)
+  _deleteCard: function(modl){
+    console.log(this.);
   },
   render:function(){
     return(
@@ -19,7 +19,8 @@ const BinderRendering = React.createClass({
             <h6>{modl.get('cardName')}</h6>
             <input className="button-primary row"
             type="submit" value="X"
-            onClick={()=>this._deleteCard(this)}/>
+            id={modl.get('id')}
+            onClick={this._deleteCard}/>
           </div>
       )
       })}
