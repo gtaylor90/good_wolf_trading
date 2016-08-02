@@ -7,6 +7,11 @@ const ACTIONS = {
       data: queryObj
     })
   },
+  fetchLocals: function(qobj){
+    STORE.data.locals.fetch({
+      data: queryObj
+    })
+  },
   searchForCards: function(q){
     console.log(q);
     console.log("STORE.data.cardColl from ACTIONS.searchForCards",
@@ -14,6 +19,18 @@ const ACTIONS = {
     STORE.data.cardColl.fetch({
       data: {
         q: q
+      }
+    }).then(function() {
+      STORE.emitChange()
+    })
+  },
+  searchForLocalCards: function(loc){
+    console.log(loc);
+    console.log("STORE.data.cardColl from ACTIONS.searchForCards",
+    STORE.data.binders);
+    STORE.data.locals.fetch({
+      data: {
+
       }
     }).then(function() {
       STORE.emitChange()

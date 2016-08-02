@@ -21,7 +21,8 @@ const AutoComplete = React.createClass({
         cardImage: modl.get('editions')[0].image_url,
         cardOwner: User.getCurrentUser()._id,
         cardName: modl.get('name'),
-        cardID: modl.get('id')
+        cardID: modl.get('id'),
+        cardLocation: User.getCurrentUser().location
       })
     }
   },

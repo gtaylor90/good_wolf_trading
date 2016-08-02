@@ -14,7 +14,8 @@ const usersSchema = new Schema({
    // example of optional fields
   name:      { type: String },
   createdAt: { type: Date, default: Date.now },
-  location: { type: String, default: "Spring"}
+  location: { type: String, default: "other"},
+  twitterHandle: { type: String, required: false }
 
 })
 const cardSchema = new Schema({
@@ -22,7 +23,8 @@ const cardSchema = new Schema({
   cardOwner: {type: String, required: true},
   cardName: {type: String, required: true},
   cardValue: {type: Number, default: 0},
-  cardID: {type: String, required: true}
+  cardID: {type: String, required: true},
+  cardLocation: {type: String, required: true}
 })
 
 module.exports = {

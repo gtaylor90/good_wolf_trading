@@ -6,23 +6,13 @@ import Header from './navbar'
 import { User } from '../models/models'
 
 /*
-cardOwner: {type: String, required: true},
-cardName: {type: String, required: true},
-cardValue: {type: Number, default: 0},
-cardID: {type: String, required: true}
+
 */
 const AutoComplete = React.createClass({
 
-  _handleCards: function(modl){
-    if(!User.getCurrentUser()){
-      alert('please log in to add cards to your binder')
-    } else {
-      ACTIONS.saveCard({
-        cardOwner: User.getCurrentUser().email,
-        cardName: modl.get('name'),
-        cardID: modl.get('id')
-      })
-    }
+  _handleOffer: function(modl){
+    console.log("offered")
+
   },
   render: function(){
     return(
@@ -35,12 +25,10 @@ const AutoComplete = React.createClass({
                 <div className="row">
                 <h6 className="one-third column cardName" >
                 {modl.get('name')}</h6>
-                <img className="two-thirds column acIMG"
-                src={modl.get('editions')[0].image_url} />
                 </div>
                 <input className="button-primary row"
                 type="submit" value="+"
-                onClick={()=>this._handleCards(modl)}/>
+                onClick={()=>this._handleOffer(modl)}/>
               </div>
             </div>
           )
@@ -62,7 +50,7 @@ const SearchView = React.createClass({
   },
   _handleSearch: function(evt){
     evt.preventDefault()
-    ACTIONS.searchForCards(evt.currentTarget.cardSearch.value)
+
   },
   render() {
     console.log('rendering')
@@ -74,7 +62,7 @@ const SearchView = React.createClass({
         <input className="button-primary"
         type="submit" value="Search!"/>
         </form>
-        <AutoComplete searchResults={this.state.cardColl} />
+        <AutoComplete searchResults={this.state.locals} />
       </div>
     );
   }

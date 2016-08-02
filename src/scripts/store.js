@@ -8,6 +8,7 @@ const STORE = _.extend(Backbone.Events, {
   removeModel: function(modl){
     console.log('model', modl.props.cardColl);
     console.log('binder', this.data.binder);
+    console.log('locals', this.data.locals);
   },
   emitChange: function(){
     this.trigger('updateContent')
@@ -18,10 +19,12 @@ const STORE = _.extend(Backbone.Events, {
   initialize: function(){
        this.data.cardColl.on('sync update', this.emitChange.bind(this))
        this.data.binder.on('sync update', this.emitChange.bind(this))
+       this.data.binder.on('sync update', this.emitChange.bind(this))
   },
   data:{
     cardColl: new CardList,
-    binder: new Binder
+    binder: new Binder,
+    locals: new Binder
   }
 
 })
