@@ -6,6 +6,7 @@ import HomeView from './views/homeview'
 import BinderView from './views/binder'
 import LoginView from './views/login'
 import CardSearchView from './views/cardSearch'
+import RegisterView from './views/register'
 import { Binder } from './models/models'
 import { User } from './models/models'
 import { CardList } from './models/models'
@@ -17,6 +18,7 @@ const app = function() {
   const Router = Backbone.Router.extend({
 
     routes: {
+      "register": "handleRegisterView",
       "cardSearch": "handleCardSearch",
       "binders": "handleBinders",
       "myBinders/:bID": "handleSingleBinder",
@@ -25,6 +27,9 @@ const app = function() {
       "login": "handleLogin",
       "*catchall": "redirect"
       // routes
+    },
+    handleRegisterView: function(){
+      ReactDOM.render(<RegisterView />, document.querySelector('.container'))
     },
     handleCardSearch: function(){
       let cardColl = new CardList
@@ -43,7 +48,7 @@ const app = function() {
       // }}).fail(function(err){
       //   console.log(err);
       // })
-      
+
       ReactDOM.render(<BinderView />,
         document.querySelector('.container'))
     },

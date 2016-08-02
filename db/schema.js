@@ -13,7 +13,8 @@ const usersSchema = new Schema({
 
    // example of optional fields
   name:      { type: String },
-  createdAt: { type: Date, default: Date.now }
+  createdAt: { type: Date, default: Date.now },
+  location: { type: String, default: "Spring"}
 
 })
 const cardSchema = new Schema({
