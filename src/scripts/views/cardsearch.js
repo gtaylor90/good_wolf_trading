@@ -9,7 +9,19 @@ import { User } from '../models/models'
 
 */
 const AutoComplete = React.createClass({
-
+  componentWillMount: function(){
+    if(!User.getCurrentUser()){
+      location.hash="login"
+    }
+    else {
+      ACTIONS.fetchLocals({
+        cardLocation: User.getCurrentUser().location
+      })
+      STORE.on('updateContent', ()=>{
+        this.setState(STORE.getData())
+      })
+    }
+  },
   _handleOffer: function(modl){
     console.log("offered")
 
@@ -41,7 +53,7 @@ const AutoComplete = React.createClass({
 
 const SearchView = React.createClass({
   componentWillMount() {
-    STORE.on('fonz', ()=>{
+    STORE.on('updateContent', ()=>{
       this.setState(STORE.getData())
     })
   },
@@ -50,15 +62,25 @@ const SearchView = React.createClass({
   },
   _handleSearch: function(evt){
     evt.preventDefault()
+    ACTIONS.fetchLocals({
+      cardLocation: evt.currentTarget.location.value
+    })
 
   },
   render() {
     console.log('rendering')
-    console.log(this.state.cardColl.models.length)
+    console.log(this.state.locals.models.length)
     return (
       <div className="row" >
         <form onSubmit={this._handleSearch} >
         <input name="cardSearch" className="two-thirds column" type="text" />
+        <select name="location">
+          <option value="spring">Spring</option>
+          <option value="tomball">Tomball</option>
+          <option value="cypress">Cypress</option>
+          <option value="other">Other</option>
+          <option value="innerLoop">Inner Loop</option>
+        </select>
         <input className="button-primary"
         type="submit" value="Search!"/>
         </form>

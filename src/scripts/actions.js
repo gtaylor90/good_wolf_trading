@@ -9,7 +9,7 @@ const ACTIONS = {
   },
   fetchLocals: function(qobj){
     STORE.data.locals.fetch({
-      data: queryObj
+      data: qobj
     })
   },
   searchForCards: function(q){
