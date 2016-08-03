@@ -1,8 +1,7 @@
-//COPIED FROM MONGO MESSAGES
-
 import React from 'react'
 import ACTIONS from '../actions'
 import Header from './navbar'
+import RegisterView from './register'
 
 const LoginView = React.createClass({
     render: function() {
@@ -64,7 +63,8 @@ const LoginBox = React.createClass({
                     <button type="submit">log in!</button>
                 </form>
                 <div>
-                <a className="button" href="#register">Register!</a>
+                <RegisterView />
+                {/* <a className="button" href="#register">Register!</a> */}
                 </div>
             </div>
             )

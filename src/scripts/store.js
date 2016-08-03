@@ -19,7 +19,12 @@ const STORE = _.extend(Backbone.Events, {
   initialize: function(){
        this.data.cardColl.on('sync update', this.emitChange.bind(this))
        this.data.binder.on('sync update', this.emitChange.bind(this))
-       this.data.binder.on('sync update', this.emitChange.bind(this))
+       this.data.locals.on('sync update', this.emitChange.bind(this))
+  },
+
+  set: function(key,val) {
+    this.data[key] = val
+    this.emitChange()
   },
   data:{
     cardColl: new CardList,

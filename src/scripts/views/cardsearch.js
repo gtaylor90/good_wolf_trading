@@ -9,21 +9,11 @@ import { User } from '../models/models'
 
 */
 const AutoComplete = React.createClass({
-  componentWillMount: function(){
-    if(!User.getCurrentUser()){
-      location.hash="login"
-    }
-    else {
-      ACTIONS.fetchLocals({
-        cardLocation: User.getCurrentUser().location
-      })
-      STORE.on('updateContent', ()=>{
-        this.setState(STORE.getData())
-      })
-    }
-  },
+  // componentWillMount: function(){
+  //
+  // },
   _handleOffer: function(modl){
-    console.log("offered")
+    alert('this will make an offer eventually')
 
   },
   render: function(){
@@ -53,9 +43,15 @@ const AutoComplete = React.createClass({
 
 const SearchView = React.createClass({
   componentWillMount() {
-    STORE.on('updateContent', ()=>{
-      this.setState(STORE.getData())
-    })
+    if(!User.getCurrentUser()){
+      location.hash="login"
+    }
+    else {
+      ACTIONS.fetchLocals()
+      STORE.on('updateContent', ()=>{
+        this.setState(STORE.getData())
+      })
+    }
   },
   getInitialState() {
     return STORE.getData()
@@ -72,7 +68,7 @@ const SearchView = React.createClass({
   },
   render() {
     console.log('rendering')
-    console.log(this.state.locals.models.length)
+    console.log(this.state.locals)
     return (
       <div className="row" >
         <form onSubmit={this._handleSearch} >

@@ -6,7 +6,6 @@ const RegisterView = React.createClass({
   render: function(){
     return(
       <div className="registerView" >
-        <Header />
         <RegisterBox />
       </div>
     )

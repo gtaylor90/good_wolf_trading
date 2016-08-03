@@ -29,7 +29,7 @@ const ACTIONS = {
     locals.fetch({
       data: loc
     }).then(function() {
-      STORE.emitChange()
+      STORE.set("locals", locals)
     })
   },
   registerUser: function(userObj){

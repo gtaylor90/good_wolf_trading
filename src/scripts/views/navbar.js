@@ -2,12 +2,21 @@
 
 import React from 'react'
 import ACTIONS from '../actions'
+import { User } from '../models/models'
 
 const Header = React.createClass({
     render: function() {
         return (
             <div id="headerContainer">
                 <h1>GoodWolfTrading</h1>
+                <h6>welcome, {()=>{
+                  if(!User.getCurrentUser()){
+                  User.getCurrentUser().name
+                  } else {
+                  "guest"
+                  }
+                  }
+                }</h6>
                 <NavBar />
             </div>
             )
