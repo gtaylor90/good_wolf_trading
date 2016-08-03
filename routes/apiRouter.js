@@ -3,7 +3,8 @@ const apiRouter = Router()
 let helpers = require('../config/helpers.js')
 let User = require('../db/schema.js').User
 let Card = require('../db/schema.js').Card
-
+//  Mongooooooose find method syntax
+// User.find({ username: {$regex : "^" + req.params.username}})
 
   apiRouter
     .get('/users', function(req, res){
@@ -72,8 +73,13 @@ let Card = require('../db/schema.js').Card
             }
          })
       })
-      apiRouter.get('/cards', function(request, response){
+
+    // '/cards?cardLocation=Spring&cardOwner=123&cardName={$regex : "^" + req.params.username}'
+    apiRouter.get('/cards', function(request, response){
+      if (request.query.cardName) request.query.cardName = new RegExp(request.query.cardName,'gi')
+      console.log("card get response", request.query)
       Card.find(request.query, function(err, rec){
+
       if(err){
         response.send(err)
       } else {

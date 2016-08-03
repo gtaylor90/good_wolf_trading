@@ -32,11 +32,11 @@ const AutoComplete = React.createClass({
       <ul>
         {this.props.searchResults.map((modl)=>{
           return(
-            <div  id={modl.get('name')} className="acList" key={modl.cid}>
+            <div  id={modl.get('cardName')} className="acList" key={modl.cid}>
               <div className="row">
                 <div className="row">
                 <h6 className="one-third column cardName" >
-                {modl.get('name')}</h6>
+                {modl.get('cardName')}</h6>
                 </div>
                 <input className="button-primary row"
                 type="submit" value="+"
@@ -62,8 +62,11 @@ const SearchView = React.createClass({
   },
   _handleSearch: function(evt){
     evt.preventDefault()
-    ACTIONS.fetchLocals({
-      cardLocation: evt.currentTarget.location.value
+    ACTIONS.searchForLocalCards({
+      cardLocation: evt.currentTarget.location.value,
+      // cardName: JSON.stringify(
+  // { $regex : "^" + evt.currentTarget.cardSearch.value })
+      cardName: "^" + evt.currentTarget.cardSearch.value
     })
 
   },

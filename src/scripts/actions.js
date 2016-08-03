@@ -25,13 +25,9 @@ const ACTIONS = {
     })
   },
   searchForLocalCards: function(loc){
-    console.log(loc);
-    console.log("STORE.data.cardColl from ACTIONS.searchForCards",
-    STORE.data.binders);
-    STORE.data.locals.fetch({
-      data: {
-
-      }
+    let locals = new Binder
+    locals.fetch({
+      data: loc
     }).then(function() {
       STORE.emitChange()
     })
@@ -78,3 +74,4 @@ const ACTIONS = {
 }
 
 export default ACTIONS
+// User.find({ username: {$regex : "^" + req.params.username}})
