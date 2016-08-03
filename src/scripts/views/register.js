@@ -21,7 +21,7 @@ const RegisterBox = React.createClass({
             password: evt.currentTarget.password.value,
             name: evt.currentTarget.userName.value,
             location: evt.currentTarget.location.value,
-            twitterHandle: evt.currentTarget.twitterHandle.value
+            // twitterHandle: evt.currentTarget.twitterHandle.value
         })
     },
 
@@ -39,8 +39,8 @@ const RegisterBox = React.createClass({
                     placeholder="enter a password" />
                     </div>
                     <div>
-                      <input type="text" name = 'twitterHandle'
-                      placeholder = 'please enter your twitter @' />
+                      {/* <input type="text" name = 'twitterHandle'
+                      placeholder = 'please enter your twitter @' /> */}
                       <select name="location">
                         <option value="spring">Spring</option>
                         <option value="tomball">Tomball</option>
