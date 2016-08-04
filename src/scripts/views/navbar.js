@@ -10,12 +10,12 @@ const Header = React.createClass({
             <div id="headerContainer">
                 <h1>GoodWolfTrading</h1>
                 <h6>welcome, {()=>{
-                  if(!User.getCurrentUser()){
-                  User.getCurrentUser().name
+                  if(!User.getCurrentUser().name){
+                    return "guest"
                   } else {
-                  "guest"
+                    return User.getCurrentUser().name
                   }
-                  }
+                }
                 }</h6>
                 <NavBar />
             </div>
@@ -28,7 +28,7 @@ const NavBar = React.createClass({
         return (
             <div id="navBar"> {/*made a few edits here so that is makes sense for this app*/}
                 <a className="button" href="#login">Log In</a>
-                <a className="button" href="#home">Home</a>
+                <a className="button" href="#binderBuilder">Binder Builder</a>
                 <a className="button" href="#binders">My Binder</a>
                 <a className="button" href="#cardSearch">Card Search</a>
                 <a className="button" href="#"

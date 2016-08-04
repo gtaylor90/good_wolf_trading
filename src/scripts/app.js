@@ -2,8 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Backbone from 'backbone'
 import init from './init'
-import HomeView from './views/homeview'
+import BinderBuilderView from './views/binderbuilder'
 import BinderView from './views/binder'
+import HomeView from './views/homeview'
 import LoginView from './views/login'
 import CardSearchView from './views/cardSearch'
 import RegisterView from './views/register'
@@ -18,6 +19,7 @@ const app = function() {
   const Router = Backbone.Router.extend({
 
     routes: {
+      "binderBuilder": "handleBinderBuilder",
       "register": "handleRegisterView",
       "cardSearch": "handleCardSearch",
       "binders": "handleBinders",
@@ -52,10 +54,14 @@ const app = function() {
       ReactDOM.render(<BinderView />,
         document.querySelector('.container'))
     },
-    handleDashboard: function(){
+    handleBinderBuilder: function(){
       let cardColl = new CardList
-      ReactDOM.render(<HomeView cardColl={cardColl}/>,
+      ReactDOM.render(<BinderBuilderView cardColl={cardColl}/>,
         document.querySelector('.container'))
+    },
+    handleDashboard: function(){
+      ReactDOM.render(<HomeView />,
+      document.querySelector('.container'))
     },
     handleSingleCard: function(mID){
       let singleCard = new SingleCard(mID)
