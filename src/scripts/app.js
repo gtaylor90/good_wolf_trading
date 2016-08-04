@@ -24,7 +24,7 @@ const app = function() {
       "cardSearch": "handleCardSearch",
       "binders": "handleBinders",
       "myBinders/:bID": "handleSingleBinder",
-      "card/:mID": "handleSingleCard",
+      "inbox": "handleInbox",
       "home": "handleDashboard",
       "login": "handleLogin",
       "*catchall": "redirect"
