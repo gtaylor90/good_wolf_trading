@@ -13,6 +13,7 @@ import HomeView from './views/homeview'
 import LoginView from './views/login'
 import CardSearchView from './views/cardSearch'
 import RegisterView from './views/register'
+import UserBinderView from './views/userbinders'
 
 // MODELS
 import { Binder } from './models/models'
@@ -38,7 +39,7 @@ const app = function() {
       // routes
     },
     handleSingleBinder: function(bID){
-      
+      <UserBinderView uID={bID} />
     },
     handleInbox: function(){
 
