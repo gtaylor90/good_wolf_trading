@@ -42,6 +42,9 @@ const AutoComplete = React.createClass({
 })
 
 const SearchView = React.createClass({
+  // componentWillUpdate(nextProps, nextState) {
+  //   STORE.off('updateContent')
+  // },
   componentWillMount() {
     if(!User.getCurrentUser()){
       location.hash="login"
@@ -53,13 +56,18 @@ const SearchView = React.createClass({
       })
     }
   },
+  componentWillUnmount(){
+    STORE.off('updateContent')
+  },
   getInitialState() {
     return STORE.getData()
   },
   _handleSearch: function(evt){
+    let cl = evt.currentTarget.location.value
+
     evt.preventDefault()
     ACTIONS.searchForLocalCards({
-      cardLocation: evt.currentTarget.location.value,
+      cardLocation: cl ? cl : undefined,
       // cardName: JSON.stringify(
   // { $regex : "^" + evt.currentTarget.cardSearch.value })
       cardName: "^" + evt.currentTarget.cardSearch.value
@@ -74,6 +82,7 @@ const SearchView = React.createClass({
         <form onSubmit={this._handleSearch} >
         <input name="cardSearch" className="two-thirds column" type="text" />
         <select name="location">
+          <option value="">All</option>
           <option value="spring">Spring</option>
           <option value="tomball">Tomball</option>
           <option value="cypress">Cypress</option>

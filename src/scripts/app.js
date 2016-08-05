@@ -1,13 +1,20 @@
+// CORE COMPONENTS
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Backbone from 'backbone'
 import init from './init'
+import ACTIONS from './actions'
+import STORE from './store'
+
+// VIEWS FROM THE 6
 import BinderBuilderView from './views/binderbuilder'
 import BinderView from './views/binder'
 import HomeView from './views/homeview'
 import LoginView from './views/login'
 import CardSearchView from './views/cardSearch'
 import RegisterView from './views/register'
+
+// MODELS
 import { Binder } from './models/models'
 import { User } from './models/models'
 import { CardList } from './models/models'
@@ -23,12 +30,18 @@ const app = function() {
       "register": "handleRegisterView",
       "cardSearch": "handleCardSearch",
       "binders": "handleBinders",
-      "myBinders/:bID": "handleSingleBinder",
+      "binders/:bID": "handleSingleBinder",
       "inbox": "handleInbox",
       "home": "handleDashboard",
       "login": "handleLogin",
       "*catchall": "redirect"
       // routes
+    },
+    handleSingleBinder: function(bID){
+      
+    },
+    handleInbox: function(){
+
     },
     handleRegisterView: function(){
       ReactDOM.render(<RegisterView />, document.querySelector('.container'))
