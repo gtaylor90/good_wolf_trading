@@ -31,7 +31,7 @@ const NavBar = React.createClass({
                 <a className="button" href="#home">Home</a>
                 <a className="button" href="#inbox">Inbox</a>
                 <a className="button" href="#binderBuilder">Binder Builder</a>
-                <a className="button" href="#binders">My Binder</a>
+                <a className="button" href="#myBinder">My Binder</a>
                 <a className="button" href="#cardSearch">Card Search</a>
                 <a className="button" href="#"
                 onClick={ACTIONS.logUserOut}>Log Out</a>

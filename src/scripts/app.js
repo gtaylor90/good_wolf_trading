@@ -30,7 +30,7 @@ const app = function() {
       "binderBuilder": "handleBinderBuilder",
       "register": "handleRegisterView",
       "cardSearch": "handleCardSearch",
-      "binders": "handleBinders",
+      "myBinder": "handleBinders",
       "binders/:bID": "handleSingleBinder",
       "inbox": "handleInbox",
       "home": "handleDashboard",
