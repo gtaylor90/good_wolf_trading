@@ -10,7 +10,7 @@ import  toastr  from 'toastr'
 const BinderRendering = React.createClass({
 
   _deleteCard: function(modl){
-    modl.destroy()
+    modl.destroy().then(()=>toastr.info("card deleted!"))
   },
   render:function(){
     return(
