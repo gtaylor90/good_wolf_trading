@@ -4,16 +4,33 @@ import ACTIONS from '../actions'
 import STORE from '../store'
 import Header from './navbar'
 import { User } from '../models/models'
-
+import Notifications, {notify} from 'react-notify-toast'
+import { toastr } from 'toastr'
 /*
 
 */
+// toastr.options = {
+//   "closeButton": false,
+//   "debug": false,
+//   "newestOnTop": false,
+//   "progressBar": false,
+//   "positionClass": "toast-top-right",
+//   "preventDuplicates": false,
+//   "showDuration": "300",
+//   "hideDuration": "1000",
+//   "timeOut": "5000",
+//   "extendedTimeOut": "1000",
+//   "showEasing": "swing",
+//   "hideEasing": "linear",
+//   "showMethod": "fadeIn",
+//   "hideMethod": "fadeOut"
+// }
 const AutoComplete = React.createClass({
   // componentWillMount: function(){
   //
   // },
   _handleOffer: function(modl){
-    alert('this will make an offer eventually')
+    toastr.success('this will make an offer eventually')
 
   },
   render: function(){
@@ -103,6 +120,7 @@ const CardSearchView = React.createClass({
   render: function(){
     return(
       <div className="row">
+      <Notifications />
       <Header />
       <h2>Search Available Cards</h2>
       <SearchView />

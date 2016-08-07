@@ -4,6 +4,7 @@ import STORE from '../store'
 import ACTIONS from '../actions'
 import $ from 'jquery'
 import { User } from '../models/models'
+import Notifications, {notify} from 'react-notify-toast';
 
 const BinderRendering = React.createClass({
 

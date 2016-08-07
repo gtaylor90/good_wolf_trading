@@ -73,6 +73,7 @@
     "passport-local": "^1.0.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
+    "react-notify-toast": "^0.1.2",
     "toastr": "^2.1.2"
   }
 }

@@ -1,5 +1,6 @@
 import { User, CardList, Card, Binder } from './models/models'
 import STORE from './store'
+import Notifications, {notify} from 'react-notify-toast';
 
 const ACTIONS = {
   fetchBinder: function(queryObj){

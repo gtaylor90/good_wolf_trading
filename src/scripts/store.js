@@ -2,6 +2,7 @@ import Backbone from 'backbone'
 import _ from 'underscore'
 import { CardList } from './models/models'
 import { Binder } from './models/models'
+import Notifications, {notify} from 'react-notify-toast';
 
 
 const STORE = _.extend(Backbone.Events, {

@@ -5,6 +5,8 @@ import Backbone from 'backbone'
 import init from './init'
 import ACTIONS from './actions'
 import STORE from './store'
+import toastr from 'toastr'
+import Notifications, {notify} from 'react-notify-toast';
 
 // VIEWS FROM THE 6
 import BinderBuilderView from './views/binderbuilder'
