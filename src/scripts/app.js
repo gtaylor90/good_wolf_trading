@@ -14,6 +14,7 @@ import LoginView from './views/login'
 import CardSearchView from './views/cardSearch'
 import RegisterView from './views/register'
 import UserBinderView from './views/userbinders'
+import BinderBrowserView from './views/binderbrowser'
 
 // MODELS
 import { Binder } from './models/models'
