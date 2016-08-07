@@ -1,6 +1,7 @@
 import { User, CardList, Card, Binder } from './models/models'
 import STORE from './store'
 import Notifications, {notify} from 'react-notify-toast';
+import  toastr  from 'toastr'
 
 const ACTIONS = {
   fetchBinder: function(queryObj){
@@ -37,7 +38,7 @@ const ACTIONS = {
     User.register(userObj).then(()=>this.logUserIn(userObj.email,
       userObj.password),
       (err)=>{
-        alert('FAILURE to register')
+        toastr.error('FAILURE to register')
         console.log(err)
       }
     )
@@ -45,12 +46,12 @@ const ACTIONS = {
   logUserIn: function(email, password){
     User.login(email, password).then(
       (resp)=> {
-        alert(`user ${email} logged in!`)
+        toastr.success(`user ${email} logged in!`)
         console.log(resp)
         location.hash= "home"
       },
       (err)=>{
-        alert('FAILURE logging in')
+        toastr.error('FAILURE logging in')
         console.log(err)
       })
   },
@@ -63,11 +64,11 @@ const ACTIONS = {
     var card = new Card(cardObj)
     card.save().then(
       (res)=>{
-        alert('card saved!')
+        toastr.success('card saved!')
         console.log(res)
       },
       (err)=>{
-        alert('ya done goofed')
+        toastr.error('ya done goofed')
         console.log(err);
       }
     )

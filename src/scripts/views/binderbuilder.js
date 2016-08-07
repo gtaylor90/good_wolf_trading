@@ -17,7 +17,7 @@ const AutoComplete = React.createClass({
 
   _handleCards: function(modl){
     if(!User.getCurrentUser()){
-      alert('please log in to add cards to your binder')
+      toastr.error('please log in to add cards to your binder')
     } else {
       ACTIONS.saveCard({
         cardImage: modl.get('editions')[0].image_url,
