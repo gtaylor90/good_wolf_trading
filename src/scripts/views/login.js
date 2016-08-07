@@ -2,6 +2,7 @@ import React from 'react'
 import ACTIONS from '../actions'
 import Header from './navbar'
 import RegisterView from './register'
+import  toastr  from 'toastr'
 
 const LoginView = React.createClass({
     render: function() {

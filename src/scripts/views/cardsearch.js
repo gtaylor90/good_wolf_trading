@@ -5,7 +5,7 @@ import STORE from '../store'
 import Header from './navbar'
 import { User } from '../models/models'
 import Notifications, {notify} from 'react-notify-toast'
-import { toastr } from 'toastr'
+import  toastr  from 'toastr'
 /*
 
 */
@@ -30,7 +30,7 @@ const AutoComplete = React.createClass({
   //
   // },
   _handleOffer: function(modl){
-    toastr.success('this will make an offer eventually')
+    toastr.info('this will make an offer eventually')
 
   },
   render: function(){

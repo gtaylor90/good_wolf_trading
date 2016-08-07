@@ -5,6 +5,7 @@ import ACTIONS from '../actions'
 import $ from 'jquery'
 import { User } from '../models/models'
 import Notifications, {notify} from 'react-notify-toast';
+import  toastr  from 'toastr'
 
 const BinderRendering = React.createClass({
 

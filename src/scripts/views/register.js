@@ -1,6 +1,7 @@
 import React from 'react'
 import ACTIONS from '../actions'
 import Header from './navbar'
+import  toastr  from 'toastr'
 
 const RegisterView = React.createClass({
   render: function(){

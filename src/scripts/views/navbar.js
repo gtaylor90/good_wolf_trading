@@ -3,6 +3,7 @@
 import React from 'react'
 import ACTIONS from '../actions'
 import { User } from '../models/models'
+import  toastr  from 'toastr'
 
 const Header = React.createClass({
     getName: function(){
