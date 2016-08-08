@@ -18,6 +18,15 @@ const usersSchema = new Schema({
   twitterHandle: { type: String, required: false }
 
 })
+
+const messageSchema = new Schema({
+  messageFor: {type: String, required: true},
+  messageFrom: {type: String, required: true},
+  messageSubj: {type: String},
+  messageCont: {type: String, required: true},
+  cardLink: {type: String}
+})
+
 const cardSchema = new Schema({
   cardImage: {type:String},
   cardOwner: {type: String, required: true},

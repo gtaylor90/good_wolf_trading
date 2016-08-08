@@ -1,8 +1,8 @@
-
-* {
-// 	font-family: Helvetica, Arial, sans-serif;
- 	box-sizing: border-box;
-}
+@import '../../node_modules/margo-css/margo.scss';
+// * {
+// // 	font-family: Helvetica, Arial, sans-serif;
+//  // 	box-sizing: border-box;
+// }
 //
 // h1 {
 // 	font-size: 300px;
@@ -14,17 +14,17 @@
 /////////////original styling down here//////////////////
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 */
-.autoComplete{
-  outline: 1p black solid;
-}
-.acList{
-  margin-top: 17px;
-  padding: 22px;
-  outline-style: solid;
-  outline-color: gray;
-  outline-width: thin;
-}
-
-.acIMG{
-  max-width: 33%;
-}
+// .autoComplete{
+//   outline: 1p black solid;
+// }
+// .acList{
+//   margin-top: 17px;
+//   padding: 22px;
+//   outline-style: solid;
+//   outline-color: gray;
+//   outline-width: thin;
+// }
+//
+// .acIMG{
+//   max-width: 33%;
+// }
