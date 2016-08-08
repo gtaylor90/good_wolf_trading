@@ -1,6 +1,7 @@
 import Backbone from 'backbone'
 import _ from 'underscore'
 import { CardList } from './models/models'
+import { Card } from './models/models'
 import { Binder } from './models/models'
 import Notifications, {notify} from 'react-notify-toast';
 
@@ -28,6 +29,8 @@ const STORE = _.extend(Backbone.Events, {
     this.emitChange()
   },
   data:{
+    modalIsShowing: false,
+    coi: new Card,
     cardColl: new CardList,
     binder: new Binder,
     locals: new Binder

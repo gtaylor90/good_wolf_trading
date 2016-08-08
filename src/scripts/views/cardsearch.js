@@ -6,6 +6,8 @@ import Header from './navbar'
 import { User } from '../models/models'
 import Notifications, {notify} from 'react-notify-toast'
 import  toastr  from 'toastr'
+import Messenger from './messenger'
+import ModalWindow from './modalwindow'
 /*
 
 */
@@ -30,8 +32,7 @@ const AutoComplete = React.createClass({
   //
   // },
   _handleOffer: function(modl){
-    toastr.info('this will make an offer eventually')
-
+    ACTIONS.toggleModal(true)
   },
   render: function(){
     return(
@@ -45,7 +46,7 @@ const AutoComplete = React.createClass({
                 <h6 className="one-third column cardName" >
                 {modl.get('cardName')}</h6>
                 </div>
-                <input className="button-primary row"
+                <input className="btn  primary"
                 type="submit" value="+"
                 onClick={()=>this._handleOffer(modl)}/>
               </div>
@@ -117,6 +118,15 @@ const SearchView = React.createClass({
 });
 
 const CardSearchView = React.createClass({
+  getInitialState() {
+    return STORE.getData()
+  },
+  componentWillMount() {
+    STORE.on('updateContent', ()=> this.setState( STORE.getData() ) )
+  },
+  componentWillUnmount(){
+    STORE.off('updateContent')
+  },
   render: function(){
     return(
       <div className="row">
@@ -124,6 +134,8 @@ const CardSearchView = React.createClass({
       <Header />
       <h2>Search Available Cards</h2>
       <SearchView />
+      <ModalWindow isVis={this.state.modalIsShowing} />
+      {/* <Messenger /> */}
       </div>
     )
   }

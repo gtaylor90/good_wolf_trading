@@ -7,6 +7,7 @@ import { User } from '../models/models'
 import Notifications, {notify} from 'react-notify-toast';
 import  toastr  from 'toastr'
 
+
 const BinderRendering = React.createClass({
 
   _deleteCard: function(modl){

@@ -4,6 +4,9 @@ import Notifications, {notify} from 'react-notify-toast';
 import  toastr  from 'toastr'
 
 const ACTIONS = {
+  toggleModal: function(modalState){
+    STORE.set("modalIsShowing", modalState)
+  },
   fetchBinder: function(queryObj){
     STORE.data.binder.fetch({
       data: queryObj

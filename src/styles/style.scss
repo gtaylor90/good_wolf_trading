@@ -1,4 +1,26 @@
 @import '../../node_modules/margo-css/margo.scss';
+
+html {
+  font-size: 14px;
+}
+
+.modalContainer{
+  display: none;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: rgba(100, 100, 100, .5);
+  z-index: 1500;
+  top: 0;
+  left: 0;
+  &.showing{
+    display: block;
+  }
+}
+.modalWindow{
+  background-color: gray;
+  padding: 1rem;
+}
 // * {
 // // 	font-family: Helvetica, Arial, sans-serif;
 //  // 	box-sizing: border-box;
