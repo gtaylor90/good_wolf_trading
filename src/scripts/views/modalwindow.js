@@ -1,6 +1,7 @@
 import React from 'react'
 import  toastr  from 'toastr'
 import ACTIONS from '../actions'
+import { User } from '../models/models'
 
 /*
 messageFor: {type: String, required: true},
@@ -13,13 +14,14 @@ cardLink: {type: String}
 const ModalWindow = React.createClass({
   _sendMessage: function(event){
     event.preventDefault()
+    console.log(User);
     ACTIONS.sendMessage({
       messageFor: this.props.dataForModal.payload.get('cardOwner'),
       messageFrom: User.getCurrentUser(),
       messageSubj: event.currentTarget.subject.value,
       messageCont: event.currentTarget.cont.value,
       cardLink: this.props.dataForModal.payload.get('cardName')
-    }).then(this._closeModal)
+    })
   },
   _closeModal: function(){
     toastr.success('hell yah get it')
@@ -47,7 +49,7 @@ const ModalWindow = React.createClass({
         <div className="modalWindow">
           <button className="btn" onClick={this._closeModal}>X</button>
           <h2>Message For User</h2>
-          <form className="form-group grid-container" onSubmit={this.sendMessage}>
+          <form className="form-group grid-container" onSubmit={this._sendMessage}>
             <div className="form-field sm-12-x-12 md-4-x-12">
               <label>Owner</label>
               <h3>{this.props.dataForModal.payload.get('cardOwner')}</h3>
@@ -63,7 +65,6 @@ const ModalWindow = React.createClass({
             <input type="submit" className="btn" value="SEND!"></input>
           </form>
         </div>
-
         </div>
       </div>
     )}

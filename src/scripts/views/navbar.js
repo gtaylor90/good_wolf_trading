@@ -27,11 +27,16 @@ const NavBar = React.createClass({
     render: function() {
         return (
             <div id="navBar"> {/*made a few edits here so that is makes sense for this app*/}
+            <h1>GoodWolfTrading</h1>
               <nav className="nav-bar">
-              {/* <h1>GoodWolfTrading</h1> */}
-                <div className="hamburger-menu">
-                  <span className="line"></span>
-                </div>
+              <input type="checkbox" className="hamburger-toggler"/>
+
+              <div className="hamburger-menu">
+                <span className="line"></span>
+                <span className="line"></span>
+                <span className="line"></span>
+              </div>
+
                 <div className="nav-list">
                 <a href="#" onClick={ACTIONS.logUserOut}>Log Out</a>
                 {/* <a href="#inbox">Inbox</a> */}

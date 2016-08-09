@@ -128,7 +128,7 @@ apiRouter.delete('/messages/:_id',function(req,res){
 apiRouter.get('/messages', function(req,res){
       //first argument gives the criteria (WHICH msgs do i want)
       if (req.user) { // if there is currently a logged-in user
-        MsgModel.find({to:req.user.email}, function(err,records) {
+        MsgModel.find({messageFor:req.user.email}, function(err,records) {
           if (err) {
             res.json({
               error: err

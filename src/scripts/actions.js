@@ -76,6 +76,10 @@ const ACTIONS = {
       (res)=>{
         toastr.success('Message Sent!')
         console.log(res)
+        ACTIONS.toggleModal({
+        modalIsShowing: false,
+        payload: {},
+        modalType: "default"})
       },
       (err)=>{
         toastr.error('ya done goofed')

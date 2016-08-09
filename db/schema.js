@@ -28,7 +28,8 @@ const messageSchema = new Schema({
 })
 
 const cardSchema = new Schema({
-  cardImage: {type:String},
+  cardImage: {type:String,
+    default:"https://image.deckbrew.com/mtg/multiverseid/0.jpg"},
   cardOwner: {type: String, required: true},
   cardName: {type: String, required: true},
   cardValue: {type: Number, default: 0},

@@ -45,24 +45,26 @@ const AutoComplete = React.createClass({
   },
   render: function(){
     return(
-    <div className="autoComplete two-thirds column" >
-      <ul>
+    <div className="grid-container" >
+
         {this.props.searchResults.map((modl)=>{
           return(
-            <div  id={modl.get('cardName')} className="acList" key={modl.cid}>
-              <div className="row">
-                <div className="row">
-                <h6 className="one-third column cardName" >
-                {modl.get('cardName')}</h6>
+            <div key={modl.get('cid')} className="sm-12-x-12 md-6-x-12 lg-4-x-12">
+            <figure  id={modl.get('cardID')} className="tn-card">
+                <div className="card-image" style={{padding: "1rem"}}>
+                  <img src={modl.get('cardImage')} />
                 </div>
+                <figcaption>
+                <h4 className="anything" >
+                {modl.get('cardName')}</h4>
                 <input className="btn  primary"
                 type="submit" value="+"
                 onClick={()=>this._closeOut(modl)}/>
-              </div>
+                </figcaption>
+            </figure>
             </div>
           )
         })}
-      </ul>
     </div>
     )
   }
