@@ -79,7 +79,7 @@ const SearchView = React.createClass({
     ACTIONS.searchForLocalCards({
       cardLocation: cl ? cl : undefined,
       // cardName: JSON.stringify(
-  // { $regex : "^" + evt.currentTarget.cardSearch.value })
+      // { $regex : "^" + evt.currentTarget.cardSearch.value })
       cardName: "^" + evt.currentTarget.cardSearch.value
     })
 
