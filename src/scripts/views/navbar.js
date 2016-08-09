@@ -16,9 +16,8 @@ const Header = React.createClass({
     render: function() {
         return (
             <div id="headerContainer">
-                <h1>GoodWolfTrading</h1>
-                <h6>welcome, {this.getName()}</h6>
                 <NavBar />
+                <h6>welcome, {this.getName()}</h6>
             </div>
             )
     }
@@ -29,15 +28,16 @@ const NavBar = React.createClass({
         return (
             <div id="navBar"> {/*made a few edits here so that is makes sense for this app*/}
               <nav className="nav-bar">
+              {/* <h1>GoodWolfTrading</h1> */}
                 <div className="hamburger-menu">
                   <span className="line"></span>
                 </div>
                 <div className="nav-list">
                 <a href="#" onClick={ACTIONS.logUserOut}>Log Out</a>
-                <a href="#inbox">Inbox</a>
-                <a href="#binderBuilder">Binder Builder</a>
-                <a href="#myBinder">My Binder</a>
+                {/* <a href="#inbox">Inbox</a> */}
                 <a href="#cardSearch">Card Search</a>
+                <a href="#myBinder">My Binder</a>
+                <a href="#binderBuilder">Binder Builder</a>
                 <a href="#login">Log In</a>
                 </div>
               </nav>

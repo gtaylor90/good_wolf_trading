@@ -12,13 +12,7 @@ cardLink: {type: String}
 
 const ModalWindow = React.createClass({
   _sendMessage: function(event){
-    console.log(
-      "messageFor:",  this.props.dataForModal.payload.get('cardOwner'),
-      "messageFrom:",  User.getCurrentUser(),
-      "messageSubj:", event.currentTarget.subject.value,
-      "messageCont:", event.currentTarget.cont.value,
-      "cardLink:", this.props.dataForModal.payload.get('cardName')
-    )
+    event.preventDefault()
     ACTIONS.sendMessage({
       messageFor: this.props.dataForModal.payload.get('cardOwner'),
       messageFrom: User.getCurrentUser(),
