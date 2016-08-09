@@ -38,5 +38,6 @@ const cardSchema = new Schema({
 
 module.exports = {
   User: createModel('User', usersSchema),
-  Card: createModel('Card', cardSchema)
+  Card: createModel('Card', cardSchema),
+  MsgModel: createModel('MsgModel', messageSchema)
 }

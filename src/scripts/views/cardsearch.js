@@ -8,6 +8,7 @@ import Notifications, {notify} from 'react-notify-toast'
 import  toastr  from 'toastr'
 import Messenger from './messenger'
 import ModalWindow from './modalwindow'
+
 /*
 
 */
@@ -63,23 +64,6 @@ const SearchView = React.createClass({
   // componentWillUpdate(nextProps, nextState) {
   //   STORE.off('updateContent')
   // },
-  componentWillMount() {
-    if(!User.getCurrentUser()){
-      location.hash="login"
-    }
-    else {
-      ACTIONS.fetchLocals()
-      STORE.on('updateContent', ()=>{
-        this.setState(STORE.getData())
-      })
-    }
-  },
-  componentWillUnmount(){
-    STORE.off('updateContent')
-  },
-  getInitialState() {
-    return STORE.getData()
-  },
   _handleSearch: function(evt){
     let cl = evt.currentTarget.location.value
 
@@ -94,7 +78,7 @@ const SearchView = React.createClass({
   },
   render() {
     console.log('rendering')
-    console.log(this.state.locals)
+    console.log(this.props.cardColl)
     return (
       <div className="row" >
         <form onSubmit={this._handleSearch} >
@@ -110,7 +94,7 @@ const SearchView = React.createClass({
         <input className="button-primary"
         type="submit" value="Search!"/>
         </form>
-        <AutoComplete searchResults={this.state.locals} />
+        <AutoComplete searchResults={this.props.cardColl} />
       </div>
     );
   }
@@ -122,7 +106,14 @@ const CardSearchView = React.createClass({
     return STORE.getData()
   },
   componentWillMount() {
-    STORE.on('updateContent', ()=> this.setState( STORE.getData() ) )
+    if(!User.getCurrentUser()){
+      location.hash="login"
+    }
+    else {
+      ACTIONS.fetchLocals()
+      STORE.on('updateContent',
+      ()=> this.setState( STORE.getData() ) )
+    }
   },
   componentWillUnmount(){
     STORE.off('updateContent')
@@ -133,7 +124,7 @@ const CardSearchView = React.createClass({
       <Notifications />
       <Header />
       <h2>Search Available Cards</h2>
-      <SearchView />
+      <SearchView cardColl={this.state.locals}/>
       <ModalWindow isVis={this.state.modalIsShowing} />
       {/* <Messenger /> */}
       </div>

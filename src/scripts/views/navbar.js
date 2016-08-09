@@ -28,13 +28,13 @@ const NavBar = React.createClass({
     render: function() {
         return (
             <div id="navBar"> {/*made a few edits here so that is makes sense for this app*/}
-                <a className="button" href="#login">Log In</a>
-                <a className="button" href="#home">Home</a>
-                <a className="button" href="#inbox">Inbox</a>
-                <a className="button" href="#binderBuilder">Binder Builder</a>
-                <a className="button" href="#myBinder">My Binder</a>
-                <a className="button" href="#cardSearch">Card Search</a>
-                <a className="button" href="#"
+                <a className="btn" href="#login">Log In</a>
+                <a className="btn" href="#home">Home</a>
+                <a className="btn" href="#inbox">Inbox</a>
+                <a className="btn" href="#binderBuilder">Binder Builder</a>
+                <a className="btn" href="#myBinder">My Binder</a>
+                <a className="btn" href="#cardSearch">Card Search</a>
+                <a className="btn" href="#"
                 onClick={ACTIONS.logUserOut}>Log Out</a>
             </div>
             )

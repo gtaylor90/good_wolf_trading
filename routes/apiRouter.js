@@ -3,7 +3,7 @@ let apiRouter = Router()
 let helpers = require('../config/helpers.js')
 let User = require('../db/schema.js').User
 let Card = require('../db/schema.js').Card
-let Msg = require('../db/schema.js').MsgModel
+let MsgModel = require('../db/schema.js').MsgModel
 //  Mongooooooose find method syntax
 // User.find({ username: {$regex : "^" + req.params.username}})
 
@@ -96,7 +96,7 @@ apiRouter.post('/cards', function(req, res){
 // ///////////////////////////////////////////////
 
 apiRouter.post('/messages', function(req,res){
-      let newRecord = new Msg(req.body)
+      let newRecord = new MsgModel(req.body)
       newRecord.save(function(err) {
         if (err) {
       res.status(404).send(err)
@@ -111,7 +111,7 @@ apiRouter.delete('/messages/:_id',function(req,res){
       // expressed in the form: [route placeholder]: [value sent]
       let theId = req.params._id
       // console.log(req.body)
-      Msg.remove({_id:theId},function(err) {
+      MsgModel.remove({_id:theId},function(err) {
         if (err) {
           res.json({
             error: err
@@ -128,7 +128,7 @@ apiRouter.delete('/messages/:_id',function(req,res){
 apiRouter.get('/messages', function(req,res){
       //first argument gives the criteria (WHICH msgs do i want)
       if (req.user) { // if there is currently a logged-in user
-        Msg.find({to:req.user.email}, function(err,records) {
+        MsgModel.find({to:req.user.email}, function(err,records) {
           if (err) {
             res.json({
               error: err

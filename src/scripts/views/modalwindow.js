@@ -15,14 +15,21 @@ const ModalWindow = React.createClass({
         <div className="contents-centered">
         <div className="modalWindow">
           <h2>Message For User</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-          ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.</p>
-          <button className="btn" onClick={this._closeModal}>close</button>
+          <button className="btn" onClick={this._closeModal}>X</button>
+          <form className="form-group grid-container">
+            <div className="form-field sm-12-x-12 md-4-x-12">
+              <label>First</label>
+              <input type="text"></input>
+            </div>
+            <div className="form-field sm-12-x-12 md-4-x-12">
+              <label>Last</label>
+              <input type="text"></input>
+            </div>
+            <div className="form-field sm-12-x-12 md-12-x-12">
+              <label>Message</label>
+              <textarea rows="6"></textarea>
+            </div>
+          </form>
         </div>
 
         </div>
