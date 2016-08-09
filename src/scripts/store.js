@@ -29,7 +29,11 @@ const STORE = _.extend(Backbone.Events, {
     this.emitChange()
   },
   data:{
-    modalIsShowing: false,
+    dataForModal: {
+      modalIsShowing: false,
+      payload: {},
+      modalType: "default"
+    },
     coi: new Card,
     cardColl: new CardList,
     binder: new Binder,

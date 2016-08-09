@@ -4,8 +4,15 @@ import Notifications, {notify} from 'react-notify-toast';
 import  toastr  from 'toastr'
 
 const ACTIONS = {
-  toggleModal: function(modalState){
-    STORE.set("modalIsShowing", modalState)
+  toggleModal: function(modalInfoObj){
+    if(typeof modalInfoObj !== "object"){
+      throw new Error("arg needs to be an obj")
+    }
+    if(typeof modalInfoObj.modalIsShowing === "undefined"
+    || modalInfoObj.payload === "undefined"){
+      throw new Error("object missing payload or modalIsShowing property")
+    }
+    STORE.set("dataForModal", modalInfoObj)
   },
   fetchBinder: function(queryObj){
     STORE.data.binder.fetch({

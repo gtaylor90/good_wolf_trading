@@ -32,8 +32,12 @@ const AutoComplete = React.createClass({
   // componentWillMount: function(){
   //
   // },
-  _handleOffer: function(modl){
-    ACTIONS.toggleModal(true)
+  _closeOut: function(payload){
+    ACTIONS.toggleModal({
+      modalIsShowing: true,
+      payload: payload,
+      modalType: "messageToCardOwner"
+    })
   },
   render: function(){
     return(
@@ -49,7 +53,7 @@ const AutoComplete = React.createClass({
                 </div>
                 <input className="btn  primary"
                 type="submit" value="+"
-                onClick={()=>this._handleOffer(modl)}/>
+                onClick={()=>this._closeOut(modl)}/>
               </div>
             </div>
           )
@@ -125,7 +129,7 @@ const CardSearchView = React.createClass({
       <Header />
       <h2>Search Available Cards</h2>
       <SearchView cardColl={this.state.locals}/>
-      <ModalWindow isVis={this.state.modalIsShowing} />
+      <ModalWindow dataForModal={this.state.dataForModal} />
       {/* <Messenger /> */}
       </div>
     )
