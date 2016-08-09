@@ -89,4 +89,4 @@ const CardList = Backbone.Collection.extend({
 
 });
 
-export { User, CardList, Card, Binder }
+export { User, CardList, Card, Binder, MsgModel, MsgCollection }

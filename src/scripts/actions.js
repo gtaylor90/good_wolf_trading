@@ -1,4 +1,4 @@
-import { User, CardList, Card, Binder } from './models/models'
+import { User, CardList, Card, Binder, MsgModel, MsgCollection } from './models/models'
 import STORE from './store'
 import Notifications, {notify} from 'react-notify-toast';
 import  toastr  from 'toastr'
@@ -68,6 +68,19 @@ const ACTIONS = {
   logUserOut: function(){
     User.logout().then(
       ()=> location.hash="login"
+    )
+  },
+  sendMessage: function(cardObj){
+    var msg = new MsgModel(cardObj)
+    msg.save().then(
+      (res)=>{
+        toastr.success('Message Sent!')
+        console.log(res)
+      },
+      (err)=>{
+        toastr.error('ya done goofed')
+        console.log(err);
+      }
     )
   },
   saveCard: function(cardObj){

@@ -10,7 +10,11 @@ import Messenger from './messenger'
 import ModalWindow from './modalwindow'
 
 /*
-
+messageFor: {type: String, required: true},
+messageFrom: {type: String, required: true},
+messageSubj: {type: String},
+messageCont: {type: String, required: true},
+cardLink: {type: String}
 */
 // toastr.options = {
 //   "closeButton": false,

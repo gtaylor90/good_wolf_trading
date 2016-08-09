@@ -2,7 +2,24 @@ import React from 'react'
 import  toastr  from 'toastr'
 import ACTIONS from '../actions'
 
+/*
+messageFor: {type: String, required: true},
+messageFrom: {type: String, required: true},
+messageSubj: {type: String},
+messageCont: {type: String, required: true},
+cardLink: {type: String}
+*/
+
 const ModalWindow = React.createClass({
+  _sendMessage: function(event){
+    ACTIONS.sendMessage({
+      messageFor: this.props.dataForModal.payload.get('cardOwner'),
+      messageForm: User.getCurrentUser(),
+      messageSubj: "fix this",
+      messageCont: "this too",
+      cardLink: this.props.dataForModal.payload.get('cardName')
+    })
+  },
   _closeModal: function(){
     toastr.success('hell yah get it')
     ACTIONS.toggleModal({
