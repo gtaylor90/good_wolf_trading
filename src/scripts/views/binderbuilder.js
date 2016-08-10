@@ -44,7 +44,7 @@ const AutoComplete = React.createClass({
                 {modl.get('name')}</h4>
                 <input className="btn  primary"
                 type="submit" value="+"
-                onClick={()=>this._closeOut(modl)}/>
+                onClick={()=>this._handleCards(modl)}/>
                 </figcaption>
             </figure>
             </div>

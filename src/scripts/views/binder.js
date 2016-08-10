@@ -51,7 +51,7 @@ const BinderView = React.createClass({
     }
     else {
       ACTIONS.fetchBinder({
-        cardOwner: User.getCurrentUser()._id
+        cardOwner: User.getCurrentUser().email
       })
       STORE.on('updateContent', ()=>{
         this.setState(STORE.getData())
