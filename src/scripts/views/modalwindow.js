@@ -17,7 +17,7 @@ const ModalWindow = React.createClass({
     console.log(User);
     ACTIONS.sendMessage({
       messageFor: this.props.dataForModal.payload.get('cardOwner'),
-      messageFrom: User.getCurrentUser(),
+      messageFrom: User.getCurrentUser().email,
       messageSubj: event.currentTarget.subject.value,
       messageCont: event.currentTarget.cont.value,
       cardLink: this.props.dataForModal.payload.get('cardName')

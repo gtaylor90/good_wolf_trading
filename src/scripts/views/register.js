@@ -44,6 +44,7 @@ const RegisterBox = React.createClass({
                     <input type="email" name="email"
                     placeholder="enter your email" />
                   </div>
+                  
                   <div className="form-field sm-12-x-12 md-6-x-12 lg-4-x-12">
                     <label>Password</label>
                     <input type="password" name="password"

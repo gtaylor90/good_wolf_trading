@@ -21,7 +21,7 @@ const AutoComplete = React.createClass({
     } else {
       ACTIONS.saveCard({
         cardImage: modl.get('editions')[0].image_url,
-        cardOwner: User.getCurrentUser()._id,
+        cardOwner: User.getCurrentUser().email,
         cardName: modl.get('name'),
         cardID: modl.get('id'),
         cardLocation: User.getCurrentUser().location
@@ -30,31 +30,42 @@ const AutoComplete = React.createClass({
   },
   render: function(){
     return(
-    <div className="autoComplete two-thirds column" >
-      <ul>
+    <div className="grid-container" >
         {this.props.searchResults.map((modl)=>{
           return(
-            <div  id={modl.get('name')} className="acList" key={modl.cid}>
-              <div className="row">
-                <div className="row">
-                <h6 className="one-third column cardName" >
-                {modl.get('name')}</h6>
-                <img className="two-thirds column acIMG"
-                src={modl.get('editions')[0].image_url} />
+            <div  id={modl.get('name')}
+            className="sm-6-x-12 md-4-x-12 lg-4-x-12" key={modl.cid}>
+            <figure  id={modl.get('cardID')} className="tn-card">
+                <div className="card-image" style={{padding: "1rem"}}>
+                  <img src={modl.get('editions')[0].image_url} />
                 </div>
-                <input className="button-primary row"
+                <figcaption>
+                <h4 className="anything" >
+                {modl.get('name')}</h4>
+                <input className="btn  primary"
                 type="submit" value="+"
-                onClick={()=>this._handleCards(modl)}/>
-              </div>
+                onClick={()=>this._closeOut(modl)}/>
+                </figcaption>
+            </figure>
             </div>
           )
         })}
-      </ul>
     </div>
     )
   }
 })
+/*
+<div className="row">
 
+  <h6 className="one-third column cardName" >
+  {modl.get('name')}</h6>
+  <img className="two-thirds column acIMG"
+  src={modl.get('editions')[0].image_url} />
+  <input className="button-primary row"
+  type="submit" value="+"
+  onClick={()=>this._handleCards(modl)}/>
+</div>
+*/
 const SearchView = React.createClass({
   componentWillMount() {
     let func = function(evt){
@@ -83,9 +94,12 @@ const SearchView = React.createClass({
     console.log(this.state.cardColl.models.length)
     return (
       <div className="row" >
-        <form >
+      <h2>Search & Add Cards to your binder!</h2>
+        <form className="form-group grid-container">
+        <div className="form-field sm-12-x-12 md-12-x-12 lg-6-x-12">
         <input onKeyDown={this._handleSearch}
         name="cardSearch" className="two-thirds column" type="text" />
+        </div>
         </form>
         <AutoComplete searchResults={this.state.cardColl} />
       </div>
@@ -99,7 +113,6 @@ const BinderBuilderView = React.createClass({
     return(
       <div className="row">
       <Header />
-      <h2>Search & Add Cards to your binder!</h2>
       <SearchView />
       </div>
     )
