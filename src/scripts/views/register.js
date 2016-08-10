@@ -51,6 +51,7 @@ const RegisterBox = React.createClass({
                   </div>
                   <div className="sm-0-x-12 md-6-x-12 lg-0-x-12"></div>
                   <div className="form-field sm-6-x-12 md-3-x-12 lg-3-x-12">
+                    <label>Your Location</label>
                     <select name="location">
                       <option value="spring">Spring</option>
                       <option value="tomball">Tomball</option>
@@ -60,6 +61,7 @@ const RegisterBox = React.createClass({
                     </select>
                   </div>
                   <div className="form-field sm-6-x-12 md-3-x-12 lg-2-x-12">
+                  <label>&nbsp;</label>
                   <button className="btn " type="submit">sign up!</button>
                   </div>
               </form>

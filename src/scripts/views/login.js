@@ -67,16 +67,17 @@ const LoginBox = React.createClass({
                 <form className="form-group grid-container"
                 onSubmit={this._handleLogin} >
                     <h3>Log in</h3>
-                    <div className="form-field sm-12-x-12 md-6-x-12 lg-6-x-12">
+                    <div className="form-field sm-12-x-12 md-6-x-12 lg-4-x-12">
                       <label>Email</label>
                       <input type="email" name="email"
                       placeholder="enter your email" />
                     </div>
-                    <div className="form-field sm-12-x-12 md-6-x-12 lg-6-x-12">
+                    <div className="form-field sm-12-x-12 md-6-x-12 lg-4-x-12">
                       <label>Password</label>
                       <input type="password" name="password"
                       placeholder="enter a password" />
                     </div>
+                    <label>&nbsp;</label>
                     <div className="form-field sm-6-x-12 md-2-x-12 lg-2-x-12">
                       <button type="submit">log in!</button>
                     </div>
