@@ -15,15 +15,23 @@ const BinderRendering = React.createClass({
   },
   render:function(){
     return(
-      <div>
+      <div className="grid-container">
       {this.props.cardColl.map((modl)=>{
         return(
-          <div key={modl.cid}>
-            <h6>{modl.get('cardName')}</h6>
-            <input className="button-primary row"
-            type="submit" value="X"
-            id={modl.get('id')}
-            onClick={()=>this._deleteCard(modl)}/>
+          <div key={modl.cid} className="sm-6-x-12 md-4-x-12 lg-4-x-12">
+            <figure id={modl.get('cardID')} className="tn-card">
+              <div className="card-image" style={{padding: "1rem"}}>
+                <img src={modl.get('cardImage')} />
+              </div>
+              <figcaption>
+              <h6>{modl.get('cardName')}</h6>
+              <input className="button-primary row"
+              type="submit" value="X"
+              id={modl.get('id')}
+              onClick={()=>this._deleteCard(modl)}/>
+              </figcaption>
+
+            </figure>
           </div>
       )
       })}
@@ -34,6 +42,9 @@ const BinderRendering = React.createClass({
 })
 
 const BinderView = React.createClass({
+  componentWillUnmount(){
+    STORE.off('updateContent')
+  },
   componentWillMount() {
     if(!User.getCurrentUser()){
       location.hash="login"

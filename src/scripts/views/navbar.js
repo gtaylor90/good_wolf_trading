@@ -6,6 +6,16 @@ import { User } from '../models/models'
 import  toastr  from 'toastr'
 
 const Header = React.createClass({
+    render: function() {
+        return (
+            <div id="headerContainer">
+                <NavBar />
+            </div>
+            )
+    }
+})
+
+const NavBar = React.createClass({
     getName: function(){
       if(!User.getCurrentUser()){
         return "guest"
@@ -15,19 +25,14 @@ const Header = React.createClass({
     },
     render: function() {
         return (
-            <div id="headerContainer">
-                <NavBar />
-                <h6>welcome, {this.getName()}</h6>
-            </div>
-            )
-    }
-})
-
-const NavBar = React.createClass({
-    render: function() {
-        return (
             <div id="navBar"> {/*made a few edits here so that is makes sense for this app*/}
-            <h1>GoodWolfTrading</h1>
+            <h1 className="goodWolfTrading" style={{marginBottom: "0",
+                        marginLeft: "3rem"
+                }}>GoodWolfTrading</h1>
+                <h3 style={{marginBottom: "0",
+                            marginTop: "0",
+                            marginLeft: "3rem"
+                    }}>welcome, {this.getName()}</h3>
               <nav className="nav-bar">
               <input type="checkbox" className="hamburger-toggler"/>
 

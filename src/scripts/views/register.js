@@ -12,7 +12,9 @@ const RegisterView = React.createClass({
     )
   }
 })
+/*
 
+*/
 const RegisterBox = React.createClass({
 
     _handleRegister: function(evt) {
@@ -28,31 +30,41 @@ const RegisterBox = React.createClass({
 
     render: function() {
         return (
-            <div className="loginBox register">
-                <form onSubmit={this._handleRegister} >
-                    <h3>Register</h3>
-                    <div>
+          <div className="register">
+              <form className="form-group grid-container"
+              onSubmit={this._handleRegister} >
+                  <h3>Register</h3>
+                  <div className="form-field sm-12-x-12 md-6-x-12 lg-4-x-12">
+                    <label>User Name</label>
                     <input type="text" name = 'userName'
                     placeholder = 'please enter your name' />
+                  </div>
+                  <div className="form-field sm-12-x-12 md-6-x-12 lg-4-x-12">
+                    <label>Email Address</label>
                     <input type="email" name="email"
                     placeholder="enter your email" />
+                  </div>
+                  <div className="form-field sm-12-x-12 md-6-x-12 lg-4-x-12">
+                    <label>Password</label>
                     <input type="password" name="password"
                     placeholder="enter a password" />
-                    </div>
-                    <div>
-                      {/* <input type="text" name = 'twitterHandle'
-                      placeholder = 'please enter your twitter @' /> */}
-                      <select name="location">
-                        <option value="spring">Spring</option>
-                        <option value="tomball">Tomball</option>
-                        <option value="cypress">Cypress</option>
-                        <option value="other">Other</option>
-                        <option value="innerLoop">Inner Loop</option>
-                      </select>
-                    </div>
-                    <button type="submit">sign up!</button>
-                </form>
-            </div>
+                  </div>
+                  <div className="form-field sm-6-x-12 md-3-x-12 lg-2-x-12">
+                    <select name="location">
+                      <option value="spring">Spring</option>
+                      <option value="tomball">Tomball</option>
+                      <option value="cypress">Cypress</option>
+                      <option value="other">Other</option>
+                      <option value="innerLoop">Inner Loop</option>
+                    </select>
+                  </div>
+                  <div className="form-field sm-6-x-12 md-3-x-12 lg-2-x-12">
+                  <button className="btn " type="submit">sign up!</button>
+                  </div>
+              </form>
+              <div>
+              </div>
+          </div>
             )
     }
 })

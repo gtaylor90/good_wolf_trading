@@ -28,16 +28,25 @@ const RegisterBox = React.createClass({
 
     render: function() {
         return (
-            <div className="loginBox register">
-                <form onSubmit={this._handleRegister} >
+            <div className="register">
+                <form className="form-group" onSubmit={this._handleRegister} >
                     <h3>Register</h3>
-                    <input type="text" name = 'userName'
-                    placeholder = 'please enter your name' />
-                    <input type="email" name="email"
-                    placeholder="enter your email" />
-                    <input type="password" name="password"
-                    placeholder="enter a password" />
-                    <button type="submit">sign up!</button>
+                    <div className="form-field">
+                      <label>User Name</label>
+                      <input type="text" name = 'userName'
+                      placeholder = 'please enter your name' />
+                    </div>
+                    <div className="form-field">
+                      <label>Email Address</label>
+                      <input type="email" name="email"
+                      placeholder="enter your email" />
+                    </div>
+                    <div className="form-field">
+                      <label>Password</label>
+                      <input type="password" name="password"
+                      placeholder="enter a password" />
+                    </div>
+                    <button className="btn" type="submit">sign up!</button>
                 </form>
                 <div>
                 </div>
@@ -55,13 +64,22 @@ const LoginBox = React.createClass({
     render: function() {
         return (
             <div className="loginBox login">
-                <form onSubmit={this._handleLogin} >
+                <form className="form-group grid-container"
+                onSubmit={this._handleLogin} >
                     <h3>Log in</h3>
-                    <input type="email" name="email"
-                    placeholder="enter your email" />
-                    <input type="password" name="password"
-                    placeholder="enter a password" />
-                    <button type="submit">log in!</button>
+                    <div className="form-field sm-12-x-12 md-6-x-12 lg-3-x-12">
+                      <label>Email</label>
+                      <input type="email" name="email"
+                      placeholder="enter your email" />
+                    </div>
+                    <div className="form-field sm-12-x-12 md-6-x-12 lg-3-x-12">
+                      <label>Password</label>
+                      <input type="password" name="password"
+                      placeholder="enter a password" />
+                    </div>
+                    <div className="form-field sm-6-x-12 md-2-x-12 lg-4-x-12">
+                      <button type="submit">log in!</button>
+                    </div>
                 </form>
                 <div>
                 <RegisterView />

@@ -49,7 +49,7 @@ const AutoComplete = React.createClass({
 
         {this.props.searchResults.map((modl)=>{
           return(
-            <div key={modl.get('cid')} className="sm-12-x-12 md-6-x-12 lg-4-x-12">
+            <div key={modl.cid} className="sm-12-x-12 md-6-x-12 lg-4-x-12">
             <figure  id={modl.get('cardID')} className="tn-card">
                 <div className="card-image" style={{padding: "1rem"}}>
                   <img src={modl.get('cardImage')} />
