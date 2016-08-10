@@ -27,7 +27,7 @@ var InboxView = React.createClass({
 	componentWillUnmount(){
     STORE.off('updateContent')
   },
-
+  
 	render: function() {
 		console.log(this.state.msgColl);
 		return (
