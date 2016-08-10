@@ -1,5 +1,7 @@
 import Backbone from 'backbone'
 import _ from 'underscore'
+import { MsgModel } from './models/models'
+import { MsgCollection } from './models/models'
 import { CardList } from './models/models'
 import { Card } from './models/models'
 import { Binder } from './models/models'
@@ -34,6 +36,8 @@ const STORE = _.extend(Backbone.Events, {
       payload: {},
       modalType: "default"
     },
+    msg: new MsgModel,
+    msgColl: new MsgCollection,
     coi: new Card,
     cardColl: new CardList,
     binder: new Binder,

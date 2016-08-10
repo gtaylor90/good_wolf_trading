@@ -19,6 +19,11 @@ const ACTIONS = {
       data: queryObj
     })
   },
+  fetchMessages: function(qobj){
+    STORE.data.msgColl.fetch({
+      messageFor: User.getCurrentUser().email
+    })
+  },
   fetchLocals: function(qobj){
     STORE.data.locals.fetch({
       data: qobj
