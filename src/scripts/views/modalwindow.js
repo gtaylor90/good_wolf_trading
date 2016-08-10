@@ -48,11 +48,11 @@ const ModalWindow = React.createClass({
         <div className="contents-centered">
         <div className="modalWindow">
           <button className="btn" onClick={this._closeModal}>X</button>
-          <h2>Message For User</h2>
+          <label>Card Request</label>
           <form className="form-group grid-container" onSubmit={this._sendMessage}>
             <div className="form-field sm-12-x-12 md-4-x-12">
               <label>Owner</label>
-              <h3>{this.props.dataForModal.payload.get('cardOwner')}</h3>
+              <h6>{this.props.dataForModal.payload.get('cardOwner')}</h6>
             </div>
             <div className="form-field sm-12-x-12 md-4-x-12">
               <label>Subj.</label>

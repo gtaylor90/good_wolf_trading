@@ -71,7 +71,7 @@ const MsgModel = Backbone.Model.extend({
 
 const MsgCollection = Backbone.Collection.extend({
 	model: MsgModel,
-	url: "api/myMessages"
+	url: "api/messages"
 })
 
 const Card = Backbone.Model.extend({

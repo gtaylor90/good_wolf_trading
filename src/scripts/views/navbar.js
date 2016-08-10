@@ -44,7 +44,7 @@ const NavBar = React.createClass({
 
                 <div className="nav-list">
                 <a href="#" onClick={ACTIONS.logUserOut}>Log Out</a>
-                {/* <a href="#inbox">Inbox</a> */}
+                <a href="#inbox">Inbox</a>
                 <a href="#cardSearch">Card Search</a>
                 <a href="#myBinder">My Binder</a>
                 <a href="#binderBuilder">Binder Builder</a>

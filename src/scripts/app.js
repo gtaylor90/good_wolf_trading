@@ -13,6 +13,7 @@ import BinderBuilderView from './views/binderbuilder'
 import BinderView from './views/binder'
 import HomeView from './views/homeview'
 import LoginView from './views/login'
+import InboxView from './views/inbox'
 import CardSearchView from './views/cardSearch'
 import RegisterView from './views/register'
 import UserBinderView from './views/userbinders'
@@ -45,7 +46,7 @@ const app = function() {
       <UserBinderView uID={bID} />
     },
     handleInbox: function(){
-
+      ReactDOM.render(<InboxView />, document.querySelector('.container'))
     },
     handleRegisterView: function(){
       ReactDOM.render(<RegisterView />, document.querySelector('.container'))

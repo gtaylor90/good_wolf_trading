@@ -1,8 +1,14 @@
 @import '../../node_modules/margo-css/margo.scss';
 
+$nv-color: #afb7ba;
+
 
 html {
   font-size: 14px;
+}
+.tn-card{
+  background: white;
+  border-radius: .5em;
 }
 
 .modalContainer{
