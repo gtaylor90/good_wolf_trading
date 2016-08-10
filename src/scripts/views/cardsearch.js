@@ -91,19 +91,29 @@ const SearchView = React.createClass({
     console.log('rendering')
     console.log(this.props.cardColl)
     return (
-      <div className="row" >
-        <form onSubmit={this._handleSearch} >
-        <input name="cardSearch" className="two-thirds column" type="text" />
-        <select name="location">
-          <option value="">All</option>
-          <option value="spring">Spring</option>
-          <option value="tomball">Tomball</option>
-          <option value="cypress">Cypress</option>
-          <option value="other">Other</option>
-          <option value="innerLoop">Inner Loop</option>
-        </select>
-        <input className="button-primary"
-        type="submit" value="Search!"/>
+      <div className="searchThing" >
+        <form className="form-group grid-container"
+        onSubmit={this._handleSearch} >
+        <div className="form-field sm-12-x-12 md-6-x-12 lg-6-x-12">
+          <label>Card Name</label>
+          <input name="cardSearch" className="two-thirds column" type="text" />
+        </div>
+        <div className="form-field sm-6-x-12 md-3-x-12 lg-3-x-12">
+          <label>Search Location</label>
+          <select name="location">
+            <option value="">All</option>
+            <option value="spring">Spring</option>
+            <option value="tomball">Tomball</option>
+            <option value="cypress">Cypress</option>
+            <option value="other">Other</option>
+            <option value="innerLoop">Inner Loop</option>
+          </select>
+        </div>
+        <div className="form-field sm-6-x-12 md-3-x-12 lg-0-x-12">
+          <label>&nbsp;</label>
+          <input className="button-primary"
+          type="submit" value="Search!"/>
+        </div>
         </form>
         <AutoComplete searchResults={this.props.cardColl} />
       </div>
@@ -131,10 +141,12 @@ const CardSearchView = React.createClass({
   },
   render: function(){
     return(
-      <div className="row">
+      <div className="grid-container">
       <Notifications />
       <Header />
-      <h2>Search Available Cards</h2>
+      <div className="sm-12-x-12 md-12-x-12 lg-12-x-12">
+        <h2 className="">Search Available Cards</h2>
+      </div>
       <SearchView cardColl={this.state.locals}/>
       <ModalWindow dataForModal={this.state.dataForModal} />
       {/* <Messenger /> */}
