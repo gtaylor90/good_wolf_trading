@@ -106,23 +106,14 @@ apiRouter.post('/messages', function(req,res){
       })
     })
 
-apiRouter.delete('/messages/:_id',function(req,res){
-      //req.params contains the variables that were in the route pattern,
-      // expressed in the form: [route placeholder]: [value sent]
-      let theId = req.params._id
-      // console.log(req.body)
-      MsgModel.remove({_id:theId},function(err) {
-        if (err) {
-          res.json({
-            error: err
-          })
-        }
-        else {
-          res.status(200).json({
-            msg: 'record successfully deleted!'
-          })
-        }
-      })
+apiRouter.delete('/messages/:id', function(req, res){
+  MsgModel.remove({ _id: req.params.id}, (err) => {
+    if(err) return res.json(err)
+    res.json({
+      msg: `record ${req.params._id} successfully deleted`,
+      _id: req.params._id
+    })
+  })
 })
 
 apiRouter.get('/messages', function(req,res){
