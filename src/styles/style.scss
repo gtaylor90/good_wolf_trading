@@ -24,8 +24,12 @@ html {
     display: block;
   }
 }
+.modal-exit{
+  border-radius: 50%;
+}
 .modalWindow{
-  background-color: #d1eeee;
+  border-radius: 1em;
+  background-color: #e3eef7;
   padding: 1rem;
 }
 // * {

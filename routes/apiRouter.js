@@ -106,8 +106,8 @@ apiRouter.post('/messages', function(req,res){
       })
     })
 
-apiRouter.delete('/messages/:id', function(req, res){
-  MsgModel.remove({ _id: req.params.id}, (err) => {
+apiRouter.delete('/messages/:_id', function(req, res){
+  MsgModel.remove({ _id: req.params._id}, (err) => {
     if(err) return res.json(err)
     res.json({
       msg: `record ${req.params._id} successfully deleted`,

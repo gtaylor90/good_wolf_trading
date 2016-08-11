@@ -49,8 +49,8 @@ const ModalWindow = React.createClass({
       className={this.props.dataForModal.modalIsShowing ? "modalContainer showing":"modalContainer"}>
         <div className="contents-centered">
         <div className="modalWindow">
-          <button className="btn" onClick={this._closeModal}>X</button>
-          <label>Card Request</label>
+          <button className="btn modal-exit" onClick={this._closeModal}>X</button>
+          {/* <label>Card Request</label> */}
           <form className="form-group grid-container" onSubmit={this._sendMessage}>
             <div className="form-field sm-12-x-12 md-4-x-12">
               <label>Owner</label>

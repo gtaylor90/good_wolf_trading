@@ -15,15 +15,18 @@ const ModalWindow_msg = React.createClass({
   _sendMessage: function(event){
     // console.log("event", this.props.dataForModal)
     event.preventDefault()
+    let mod = this.props.dataForModal.payload
+    console.log("hopefully the model", mod);
     ACTIONS.sendMessage({
       messageFor: this.props.dataForModal.payload.get('messageFrom'),
       forEmail: this.props.dataForModal.payload.get('senderEmail'),
       messageFrom: User.getCurrentUser().name,
       senderEmail: User.getCurrentUser().email,
-      messageSubj: event.currentTarget.subject.value,
+      messageSubj: "Re:" + this.props.dataForModal.payload.get('messageSubj'),
       messageCont: event.currentTarget.cont.value,
       cardLink: this.props.dataForModal.payload.get('cardLink')
     })
+
   },
   _closeModal: function(){
     toastr.success('hell yah get it')
@@ -49,8 +52,8 @@ const ModalWindow_msg = React.createClass({
       className={this.props.dataForModal.modalIsShowing ? "modalContainer showing":"modalContainer"}>
         <div className="contents-centered">
         <div className="modalWindow">
-          <button className="btn" onClick={this._closeModal}>X</button>
-          <label>Card Request</label>
+          <button className="modal-exit" onClick={this._closeModal}>X</button>
+          {/* <label>Card Request</label> */}
           <form className="form-group grid-container" onSubmit={this._sendMessage}>
             <div className="form-field sm-12-x-12 md-4-x-12">
               <label>Owner</label>
@@ -59,7 +62,7 @@ const ModalWindow_msg = React.createClass({
             </div>
             <div className="form-field sm-12-x-12 md-4-x-12">
               <label>Subj.</label>
-              <input name="subject" type="text"></input>
+              <h6>Re: {this.props.dataForModal.payload.get('messageSubj')}</h6>
             </div>
             <div className="form-field sm-12-x-12 md-4-x-12">
               <label>Card</label>

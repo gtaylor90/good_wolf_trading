@@ -16,11 +16,11 @@ const Msg = React.createClass({
       payload: modl,
       modalType: "messageToCardOwner"
     })
+		modl.destroy()
   },
 	_ignore: function(modl){
-		let toBeDestroyed = STORE.data.msgColl.find({_id: modl.id})
-		console.log("the model", toBeDestroyed);
-		toBeDestroyed.destroy().then(toastr.info('message ignored'))
+		window.mod = modl
+		modl.destroy().then(toastr.info('message ignored'))
 	},
 	render: function() {
 		return (

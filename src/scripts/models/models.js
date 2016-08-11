@@ -65,7 +65,7 @@ const User = UserAuthModel.extend({
 	}
 })
 const MsgModel = Backbone.Model.extend({
-	url: "api/messages",
+	urlRoot: "api/messages",
 	idAttribute: "_id"
 })
 
