@@ -12,8 +12,9 @@ const Hero = React.createClass({
     return(
       <header className="hero">
         <div className="container-narrow">
-          <h1 className="title">Welcome to GoodWolfTrading!</h1>
-          <h3 className="subtitle">Let's get Started!</h3>
+          <h1 className="title">Welcome to <span
+          className="goodWolfTrading">GoodWolfTrading</span>!</h1>
+          <h3 className="subT">Let's get Started!</h3>
           <div className="grid-container">
             <a className="btn sm-6-x-12 md-3-x-12 lg-2-x-12"
             href="#binderBuilder">Binder Builder</a>
