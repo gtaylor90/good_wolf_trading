@@ -13,11 +13,13 @@ cardLink: {type: String}
 
 const ModalWindow = React.createClass({
   _sendMessage: function(event){
+    // console.log("event", this.props.dataForModal)
     event.preventDefault()
-    console.log(User);
     ACTIONS.sendMessage({
       messageFor: this.props.dataForModal.payload.get('cardOwner'),
-      messageFrom: User.getCurrentUser().email,
+      forEmail: this.props.dataForModal.payload.get('email'),
+      messageFrom: User.getCurrentUser().name,
+      senderEmail: User.getCurrentUser().email,
       messageSubj: event.currentTarget.subject.value,
       messageCont: event.currentTarget.cont.value,
       cardLink: this.props.dataForModal.payload.get('cardName')
@@ -32,9 +34,9 @@ const ModalWindow = React.createClass({
     })
   },
   render: function(){
-    console.log("the payload", this.props.dataForModal.payload);
-    console.log("the state of the modal window",
-    this.props.dataForModal.modalIsShowing);
+    // console.log("the payload", this.props.dataForModal.payload);
+    // console.log("the state of the modal window",
+    // this.props.dataForModal.modalIsShowing);
 
     if(this.props.dataForModal.modalType === "default"){
       return(
@@ -53,6 +55,7 @@ const ModalWindow = React.createClass({
             <div className="form-field sm-12-x-12 md-4-x-12">
               <label>Owner</label>
               <h6>{this.props.dataForModal.payload.get('cardOwner')}</h6>
+              <h6>{this.props.dataForModal.payload.get('email')}</h6>
             </div>
             <div className="form-field sm-12-x-12 md-4-x-12">
               <label>Subj.</label>

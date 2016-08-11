@@ -4,30 +4,46 @@ import Notifications, {notify} from 'react-notify-toast';
 import  toastr  from 'toastr'
 
 const ACTIONS = {
-  toggleModal: function(modalInfoObj){
-    if(typeof modalInfoObj !== "object"){
-      throw new Error("arg needs to be an obj")
-    }
-    if(typeof modalInfoObj.modalIsShowing === "undefined"
-    || modalInfoObj.payload === "undefined"){
-      throw new Error("object missing payload or modalIsShowing property")
-    }
-    STORE.set("dataForModal", modalInfoObj)
-  },
   fetchBinder: function(queryObj){
     STORE.data.binder.fetch({
       data: queryObj
     })
   },
-  fetchMessages: function(qobj){
+  fetchMessages: function(){
     STORE.data.msgColl.fetch({
-      messageFor: User.getCurrentUser().email
-    })
+      forEmail: User.getCurrentUser().email
+    }).then(console.log("msgColl", STORE.data.msgColl))
   },
   fetchLocals: function(qobj){
     STORE.data.locals.fetch({
       data: qobj
     })
+  },
+  logUserIn: function(email, password){
+    User.login(email, password).then(
+      (resp)=> {
+        toastr.success(`user ${email} logged in!`)
+        console.log(resp)
+        location.hash= "home"
+      },
+      (err)=>{
+        toastr.error('FAILURE logging in')
+        console.log(err)
+      })
+  },
+  logUserOut: function(){
+    User.logout().then(
+      ()=> location.hash="login"
+    )
+  },
+  registerUser: function(userObj){
+    User.register(userObj).then(()=>this.logUserIn(userObj.email,
+      userObj.password),
+      (err)=>{
+        toastr.error('FAILURE to register')
+        console.log(err)
+      }
+    )
   },
   searchForCards: function(q){
     console.log(q);
@@ -49,33 +65,8 @@ const ACTIONS = {
       STORE.set("locals", locals)
     })
   },
-  registerUser: function(userObj){
-    User.register(userObj).then(()=>this.logUserIn(userObj.email,
-      userObj.password),
-      (err)=>{
-        toastr.error('FAILURE to register')
-        console.log(err)
-      }
-    )
-  },
-  logUserIn: function(email, password){
-    User.login(email, password).then(
-      (resp)=> {
-        toastr.success(`user ${email} logged in!`)
-        console.log(resp)
-        location.hash= "home"
-      },
-      (err)=>{
-        toastr.error('FAILURE logging in')
-        console.log(err)
-      })
-  },
-  logUserOut: function(){
-    User.logout().then(
-      ()=> location.hash="login"
-    )
-  },
   sendMessage: function(cardObj){
+    console.log("cardObj", cardObj)
     var msg = new MsgModel(cardObj)
     msg.save().then(
       (res)=>{
@@ -104,6 +95,16 @@ const ACTIONS = {
         console.log(err);
       }
     )
+  },
+  toggleModal: function(modalInfoObj){
+    if(typeof modalInfoObj !== "object"){
+      throw new Error("arg needs to be an obj")
+    }
+    if(typeof modalInfoObj.modalIsShowing === "undefined"
+    || modalInfoObj.payload === "undefined"){
+      throw new Error("object missing payload or modalIsShowing property")
+    }
+    STORE.set("dataForModal", modalInfoObj)
   }
 }
 

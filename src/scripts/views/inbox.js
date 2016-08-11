@@ -27,9 +27,9 @@ var InboxView = React.createClass({
 	componentWillUnmount(){
     STORE.off('updateContent')
   },
-  
+
 	render: function() {
-		console.log(this.state.msgColl);
+		// console.log(this.state.msgColl);
 		return (
 			<div className="inboxView">
 				<Header />
@@ -54,16 +54,18 @@ var Inbox = React.createClass({
 })
 
 var Msg = React.createClass({
-
+  _reply: function(){
+    toastr.success("message sent")
+  },
 	render: function() {
 		return (
 			<div className="">
 				<figure className="tn-card">
 					<figcaption >
-						<p>to: {this.props.record.get('to')}</p>
-						<p>from: {this.props.record.get('from')}</p>
-						<p>{this.props.record.get('content')}</p>
-						<button onClick={this._removeModel} >X</button>
+						<p>to: {this.props.record.get('messageFor')}</p>
+						<p>from: {this.props.record.get('messageFrom')}</p>
+						<p>{this.props.record.get('messageSubj')}</p>
+						<button onClick={this._reply} >X</button>
      			</figcaption>
 				</figure>
 			</div>

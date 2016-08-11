@@ -88,8 +88,7 @@ const SearchView = React.createClass({
 
   },
   render() {
-    console.log('rendering')
-    console.log(this.props.cardColl)
+    // console.log("this.props.cardColl", this.props.cardColl)
     return (
       <div className="searchThing" >
         <form className="form-group grid-container"

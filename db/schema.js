@@ -21,7 +21,9 @@ const usersSchema = new Schema({
 
 const messageSchema = new Schema({
   messageFor: {type: String, required: true},
+  forEmail: {type: String, required: true},
   messageFrom: {type: String, required: true},
+  senderEmail: {type: String, required: true},
   messageSubj: {type: String},
   messageCont: {type: String, required: true},
   cardLink: {type: String}
@@ -31,6 +33,7 @@ const cardSchema = new Schema({
   cardImage: {type:String,
     default:"https://image.deckbrew.com/mtg/multiverseid/0.jpg"},
   cardOwner: {type: String, required: true},
+  email: {type: String, required: true},
   cardName: {type: String, required: true},
   cardValue: {type: Number, default: 0},
   cardID: {type: String, required: true},
