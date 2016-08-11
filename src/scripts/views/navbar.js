@@ -29,10 +29,7 @@ const NavBar = React.createClass({
             <h1 className="goodWolfTrading" style={{marginBottom: "0",
                         marginLeft: "3rem"
                 }}>GoodWolfTrading</h1>
-                <h3 style={{marginBottom: "0",
-                            marginTop: "0",
-                            marginLeft: "3rem"
-                    }}>welcome, {this.getName()}</h3>
+                <h3 className="names">welcome, {this.getName()}</h3>
               <nav className="nav-bar">
               <input type="checkbox" className="hamburger-toggler"/>
 

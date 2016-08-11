@@ -1,4 +1,6 @@
 @import '../../node_modules/margo-css/margo.scss';
+@import url(https://fonts.googleapis.com/css?family=Lobster|Comfortaa);
+
 
 $nv-color: #afb7ba;
 
@@ -11,6 +13,15 @@ html {
   border-radius: .5em;
 }
 
+.goodWolfTrading{
+  font-family: 'Lobster';
+}
+.names{
+  margin-bottom: .25em;
+  margin-top: .5em;
+  margin-left: 3rem;
+  font-family: 'Comfortaa';
+}
 .modalContainer{
   display: none;
   position: fixed;
