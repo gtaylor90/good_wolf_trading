@@ -7,6 +7,7 @@
 - Toastr.js
 - MongoDb
 - Margo_Css
+- Full Stack Boiler Plate
 
 ##APIs Used
 - Deckbuilder API (free)
