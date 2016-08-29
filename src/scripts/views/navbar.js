@@ -1,4 +1,3 @@
-//COPIED FROM MONGO MESSAGES
 
 import React from 'react'
 import ACTIONS from '../actions'
@@ -16,6 +15,12 @@ const Header = React.createClass({
 })
 
 const NavBar = React.createClass({
+    _userSwitch: function(){
+      //needs to switch the login/logout buttons so that they
+      //display properly depending on log in status
+      //also need to show registration on separate page
+      //that should prob be handled by another function tho…
+    },
     getName: function(){
       if(!User.getCurrentUser()){
         return "guest"
