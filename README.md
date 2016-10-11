@@ -8,6 +8,7 @@ life trades between local Magic: the Gathering players
 - JavaScript
 - Node.js
 - React.js
+- Backbone.js
 - Toastr.js
 - MongoDb
 - Margo_Css
